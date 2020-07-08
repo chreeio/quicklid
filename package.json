@@ -1,0 +1,40 @@
+{
+  "name": "quicklid",
+  "version": "1.0.0",
+  "description": "A Liquid-like string expression evaluator.",
+  "main": "dist/quicklid.js",
+  "types": "dist/types/quicklid.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chreeio/quicklid.git"
+  },
+  "keywords": [
+    "liquid",
+    "template",
+    "templating"
+  ],
+  "author": "Chree Development Team",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/chreeio/quicklid/issues"
+  },
+  "homepage": "https://github.com/chreeio/quicklid#readme",
+  "devDependencies": {
+    "@commitlint/cli": "9.0.1",
+    "@commitlint/config-conventional": "9.0.1",
+    "husky": "4.2.5",
+    "typescript": "3.9.6"
+  }
+}
