@@ -8,7 +8,7 @@ import { CompiledTemplate } from './CompiledTemplate'
  */
 export interface TemplateEvaluator {
     /**
-     * 
+     * throws TemplateSyntaxError
      * @param template 
      */
     compileExpression(template: String, options?: CompilationOptions): CompiledTemplate
