@@ -1,5 +1,6 @@
+import { DefaultTemplateEvaluator } from './evaluator/DefaultTemplateEvaluator'
 import { TemplateEvaluator } from './evaluator/TemplateEvaluator'
 
 export function createInstance(): TemplateEvaluator {
-    return null
+    return new DefaultTemplateEvaluator()
 }
