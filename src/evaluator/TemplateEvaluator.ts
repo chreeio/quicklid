@@ -54,5 +54,6 @@ export const tokens = Object.freeze({
     ARGUMENTS_BEGIN: ':',
     ARGUMENT_DELIMITER: ',',
     FILTER_DELIMITER: '|',
-    POINTER_SEGMENT_SEPARATOR: '.'
+    POINTER_SEGMENT_SEPARATOR: '.',
+    ESCAPE_CHARACTER: '\\'
 })
