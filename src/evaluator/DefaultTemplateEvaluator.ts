@@ -14,10 +14,10 @@ export class DefaultTemplateEvaluator implements TemplateEvaluator {
         this.evaluator = new CompiledTemplateEvaluator()
     }
 
-    compileExpression(template: String, options?: Partial<CompilationOptions>): CompiledTemplate {
+    compileTemplate(template: String, options?: Partial<CompilationOptions>): CompiledTemplate {
         const setOptions: CompilationOptions = { ...defaultCompilationOptions, ...(options || {}) }
 
-        return this.compiler.compileExpression(template, setOptions)
+        return this.compiler.compileTemplate(template, setOptions)
     }
 
     evaluateCompiledTemplate(compiledTemplate: CompiledTemplate, substitutionData: object, options?: Partial<EvaluationOptions>): string {

@@ -11,7 +11,7 @@ export interface TemplateEvaluator {
      * throws TemplateSyntaxError
      * @param template 
      */
-    compileExpression(template: String, options?: Partial<CompilationOptions>): CompiledTemplate
+    compileTemplate(template: String, options?: Partial<CompilationOptions>): CompiledTemplate
 
     /**
      * throws UnknownFilterError, throws UnknownPropertyError
