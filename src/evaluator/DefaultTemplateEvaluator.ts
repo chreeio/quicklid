@@ -1,4 +1,4 @@
-import { TemplateEvaluator } from './TemplateEvaluator'
+import { TemplateEvaluator, defaultCompilationOptions, defaultEvaluationOptions } from './TemplateEvaluator'
 import { CompilationOptions } from './CompilationOptions';
 import { CompiledTemplate } from './CompiledTemplate';
 import { CompiledTemplateEvaluator } from './CompiledTemplateEvaluator'
@@ -11,11 +11,13 @@ export class DefaultTemplateEvaluator implements TemplateEvaluator {
         this.evaluator = new CompiledTemplateEvaluator()
     }
 
-    compileExpression(template: String, options?: CompilationOptions): CompiledTemplate {
+    compileExpression(template: String, options?: Partial<CompilationOptions>): CompiledTemplate {
         throw new Error("Method not implemented.");
     }
 
-    evaluateCompiledTemplate(compiledTemplate: CompiledTemplate, substitutionData: object, options?: EvaluationOptions): string {
-        return this.evaluator.evaluateCompiledTemplate(compiledTemplate, substitutionData, options)
+    evaluateCompiledTemplate(compiledTemplate: CompiledTemplate, substitutionData: object, options?: Partial<EvaluationOptions>): string {
+        const setOptions: EvaluationOptions = { ...(options || {}), ...defaultEvaluationOptions }
+
+        return this.evaluator.evaluateCompiledTemplate(compiledTemplate, substitutionData, setOptions)
     }
 }
