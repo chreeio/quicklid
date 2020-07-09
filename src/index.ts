@@ -4,3 +4,5 @@ import { TemplateEvaluator } from './evaluator/TemplateEvaluator'
 export function createInstance(): TemplateEvaluator {
     return new DefaultTemplateEvaluator()
 }
+
+export { defaultCompilationOptions, defaultEvaluationOptions } from './evaluator/TemplateEvaluator'
