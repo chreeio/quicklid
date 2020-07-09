@@ -1,4 +1,5 @@
-import { EvaluationOptions } from './EvaluationOptions';
+import { CompilationOptions } from './CompilationOptions'
+import { EvaluationOptions } from './EvaluationOptions'
 
 import { CompiledTemplate } from './CompiledTemplate'
 
@@ -10,7 +11,7 @@ export interface TemplateEvaluator {
      * 
      * @param template 
      */
-    compileExpression(template: String): CompiledTemplate
+    compileExpression(template: String, options?: CompilationOptions): CompiledTemplate
 
     /**
      * throws UnknownFilterError, throws UnknownPropertyError
