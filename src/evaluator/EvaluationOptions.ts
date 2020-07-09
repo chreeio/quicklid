@@ -7,20 +7,20 @@ export interface EvaluationOptions {
     /**
      * 
      */
-    allowUnknownProperties?: boolean
+    allowUnknownProperties: boolean
 
     /**
      * 
      */
-    unknownPropertyPlaceholder?: string
+    unknownPropertyPlaceholder: string
 
     /**
      * 
      */
-    allowUnknownFilters?: boolean
+    allowUnknownFilters: boolean
 
     /**
      * 
      */
-    unknownFilterPlaceholder?: FilterFunction
+    unknownFilterPlaceholder: FilterFunction
 }

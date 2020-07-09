@@ -5,10 +5,10 @@ export interface CompilationOptions {
     /**
      * 
      */
-    requireColonAfterFilter?: boolean,
+    requireColonAfterFilter: boolean,
 
     /**
      * 
      */
-    requireCommaBetweenArgs?: boolean
+    requireCommaBetweenArgs: boolean
 }
