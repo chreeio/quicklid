@@ -3,7 +3,7 @@ import { FilterFunction } from './FilterFunction'
 /**
  * 
  */
-export interface TemplateEvaluatorOptions {
+export interface EvaluationOptions {
     /**
      * 
      */

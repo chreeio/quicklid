@@ -1,4 +1,4 @@
-import { TemplateEvaluatorOptions } from './TemplateEvaluatorOptions';
+import { EvaluationOptions } from './EvaluationOptions';
 
 import { CompiledTemplate } from './CompiledTemplate'
 
@@ -18,5 +18,5 @@ export interface TemplateEvaluator {
      * @param substitutionData 
      * @param options 
      */
-    evaluateCompiledTemplate(compiledTemplate: CompiledTemplate, substitutionData: object, options?: TemplateEvaluatorOptions): string
+    evaluateCompiledTemplate(compiledTemplate: CompiledTemplate, substitutionData: object, options?: EvaluationOptions): string
 }
