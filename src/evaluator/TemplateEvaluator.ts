@@ -46,3 +46,13 @@ export const defaultEvaluationOptions: Readonly<EvaluationOptions> = {
 
     filters: {}
 }
+
+export const tokens = Object.freeze({
+    EXPRESSION_BEGIN: '{{',
+    EXPRESSION_END: '}}',
+    STRING_DELIMITER: '"',
+    ARGUMENTS_BEGIN: ':',
+    ARGUMENT_DELIMITER: ',',
+    FILTER_DELIMITER: '|',
+    POINTER_SEGMENT_SEPARATOR: '.'
+})
