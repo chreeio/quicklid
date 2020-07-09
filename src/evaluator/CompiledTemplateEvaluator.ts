@@ -24,14 +24,14 @@ export class CompiledTemplateEvaluator {
     }
 
     private evaluateExpressionFragment(fragment: ExpressionFragment, substitutionData: object, options: EvaluationOptions): string {
-        const pointerValue = this.evaluatePointerValue(fragment.pointer, substitutionData, options)
+        const pointerValue = this.evaluatePointerValue(fragment.pointerSegments, substitutionData, options)
 
         return fragment.filters
             .reduce((input, filter) => this.evaluateFilter(input, filter, options), pointerValue)
     }
 
-    private evaluatePointerValue(pointer: string, substitutionData: object, options: EvaluationOptions): string {
-        const resolutionResult = this.resolvePointer(pointer, substitutionData)
+    private evaluatePointerValue(pointerSegments: string[], substitutionData: object, options: EvaluationOptions): string {
+        const resolutionResult = this.resolvePointer(pointerSegments, substitutionData)
 
         if (!resolutionResult.present && !options.allowUnknownProperties) {
             throw new UnknownPropertyError()
@@ -58,12 +58,10 @@ export class CompiledTemplateEvaluator {
         return value
     }
     
-    private resolvePointer(pointer: string, substitutionData: object): ResolutionResult {
-        const segments = pointer.split('.')
-
+    private resolvePointer(pointerSegments: string[], substitutionData: object): ResolutionResult {
         let result = substitutionData
 
-        for (const segment of segments) {
+        for (const segment of pointerSegments) {
             if (typeof result === 'object' && Object.prototype.hasOwnProperty.call(substitutionData, segment)) {
                 result = result[segment]
             } else {

@@ -27,7 +27,7 @@ export interface TextFragment {
  * 
  */
 export interface ExpressionFragment {
-    pointer: string,
+    pointerSegments: string[],
     filters: CompiledFilter[]
 }
 
