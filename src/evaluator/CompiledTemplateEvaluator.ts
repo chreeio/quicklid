@@ -1,5 +1,6 @@
-import { CompiledTemplate, CompiledTemplateFragment, TextFragment, ExpressionFragment } from './CompiledTemplate'
+import { CompiledTemplate, CompiledTemplateFragment, TextFragment, ExpressionFragment, CompiledFilter } from './CompiledTemplate'
 import { EvaluationOptions } from './EvaluationOptions'
+import { UnknownFilterError } from './UnknownFilterError'
 import { UnknownPropertyError } from './UnknownPropertyError'
 
 interface ResolutionResult {
@@ -24,6 +25,33 @@ export class CompiledTemplateEvaluator {
 
     private evaluateExpressionFragment(fragment: ExpressionFragment, substitutionData: object, options: EvaluationOptions): string {
         const pointerValue = this.evaluatePointerValue(fragment.pointer, substitutionData, options)
+
+        return fragment.filters
+            .reduce((input, filter) => this.evaluateFilter(input, filter, options), pointerValue)
+    }
+
+    private evaluateFilter(input: string, filter: CompiledFilter, options: EvaluationOptions): string {
+        const resolutionResult = this.resolveFilter(input, filter, options)
+
+        if (!resolutionResult.present && options.allowUnknownFilters) {
+            throw new UnknownFilterError()
+        }
+
+        const value = resolutionResult.present
+            ? resolutionResult.value
+            : options.unknownFilterPlaceholder(input, filter.args)
+
+        return value
+    }
+
+    private resolveFilter(input: string, filter: CompiledFilter, options: EvaluationOptions): ResolutionResult {
+        const filterFunction = options.filters[filter.name]
+
+        if (!filterFunction) {
+            return { present: false }
+        }
+
+        return { value: filterFunction(input, filter.args), present: true }
     }
 
     private evaluatePointerValue(pointer: string, substitutionData: object, options: EvaluationOptions): string {
