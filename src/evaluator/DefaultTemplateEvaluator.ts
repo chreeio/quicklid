@@ -16,7 +16,7 @@ export class DefaultTemplateEvaluator implements TemplateEvaluator {
     }
 
     evaluateCompiledTemplate(compiledTemplate: CompiledTemplate, substitutionData: object, options?: Partial<EvaluationOptions>): string {
-        const setOptions: EvaluationOptions = { ...(options || {}), ...defaultEvaluationOptions }
+        const setOptions: EvaluationOptions = { ...defaultEvaluationOptions, ...(options || {}) }
 
         return this.evaluator.evaluateCompiledTemplate(compiledTemplate, substitutionData, setOptions)
     }

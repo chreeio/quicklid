@@ -22,5 +22,9 @@ export interface EvaluationOptions {
     /**
      * 
      */
-    unknownFilterPlaceholder: FilterFunction
+    unknownFilterPlaceholder: FilterFunction,
+
+    filters: {
+        [filterName: string]: FilterFunction
+    }
 }
