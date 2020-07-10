@@ -1,0 +1,68 @@
+[
+    {
+        "title": "it should return a single text fragment for an empty template",
+        "template": "",
+        "expected": {
+            "fragments": [
+                {
+                    "text": ""
+                }
+            ]
+        }
+    },
+    {
+        "title": "it should return a single text fragment for a template without expressions",
+        "template": "Hello, world!",
+        "expected": {
+            "fragments": [
+                {
+                    "text": "Hello, world!"
+                }
+            ]
+        }
+    },
+    {
+        "title": "it should return a single text fragment for a template with an escaped expression begin",
+        "template": "Hello, \\{{ world!",
+        "expected": {
+            "fragments": [
+                {
+                    "text": "Hello, {{ world!"
+                }
+            ]
+        }
+    },
+    {
+        "title": "it should return a single text fragment for a template with subsequent escaped expression begins",
+        "template": "Hello, \\{{\\{{ world!",
+        "expected": {
+            "fragments": [
+                {
+                    "text": "Hello, {{{{ world!"
+                }
+            ]
+        }
+    },
+    {
+        "title": "it should return a single text fragment for a template with overlapping escaped expression begins (first-escaped)",
+        "template": "Hello, \\{{{ world!",
+        "expected": {
+            "fragments": [
+                {
+                    "text": "Hello, {{{ world!"
+                }
+            ]
+        }
+    },
+    {
+        "title": "it should return a single text fragment for a template with overlapping escaped expression begins (second-escaped)",
+        "template": "Hello, {\\{{ world!",
+        "expected": {
+            "fragments": [
+                {
+                    "text": "Hello, {{{ world!"
+                }
+            ]
+        }
+    }
+]
