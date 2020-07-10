@@ -7,6 +7,8 @@ const NOT_FOUND = -1
 export class TemplateCompiler {
     private static readonly ESCAPED_EXPRESSION_BEGIN_REGEXP = new RegExp('\\' + tokens.ESCAPE_CHARACTER + tokens.EXPRESSION_BEGIN, 'g')
 
+    private static readonly POINTER_REGEXP = /^[a-zA-Z0-9_\.\-]+$/g
+
     compileTemplate(template: String, options: CompilationOptions): CompiledTemplate {
         const fragments: CompiledTemplateFragment[] = []
 
@@ -32,6 +34,8 @@ export class TemplateCompiler {
                         currentExpressionEnd
                     ).trim()
 
+                    this.validatePointer(pointer)
+
                     const pointerSegments = pointer.split(tokens.POINTER_SEGMENT_SEPARATOR)
 
                     fragments.push({ pointerSegments, filters: [] } as ExpressionFragment)
@@ -48,6 +52,8 @@ export class TemplateCompiler {
                     firstFilterStart
                 ).trim()
 
+                this.validatePointer(pointer)
+
                 const pointerSegments = pointer.split(tokens.POINTER_SEGMENT_SEPARATOR)
             }
 
@@ -60,6 +66,12 @@ export class TemplateCompiler {
         
         return {
             fragments: this.removeEmptyTextFragments(fragments)
+        }
+    }
+
+    private validatePointer(pointer: string) {
+        if (!pointer.match(TemplateCompiler.POINTER_REGEXP)) {
+            throw new Error('Invalid pointer syntax')
         }
     }
 
