@@ -118,6 +118,10 @@
             {
                 "title": "it should throw, if an expression begin has no closing pair",
                 "template": "{{"
+            },
+            {
+                "title": "it should throw if the pointer contains invalid characters",
+                "template": "{{a'hoi}}"
             }
         ]
     }
