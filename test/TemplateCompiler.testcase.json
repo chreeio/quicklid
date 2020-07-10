@@ -114,6 +114,10 @@
                         }
                     ]
                 }
+            },
+            {
+                "title": "it should throw, if an expression begin has no closing pair",
+                "template": "{{"
             }
         ]
     }
