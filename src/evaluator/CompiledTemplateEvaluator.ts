@@ -8,6 +8,10 @@ interface ResolutionResult {
     present: boolean
 }
 
+type SubstitutionObject = {
+    [propertyName: string]: any
+}
+
 export class CompiledTemplateEvaluator {
     evaluateCompiledTemplate(compiledTemplate: CompiledTemplate, substitutionData: object, options: EvaluationOptions): string {
         const result = compiledTemplate.fragments
@@ -62,7 +66,7 @@ export class CompiledTemplateEvaluator {
         let result = substitutionData
 
         for (const segment of pointerSegments) {
-            if (typeof result === 'object' && Object.prototype.hasOwnProperty.call(substitutionData, segment)) {
+            if (this.isSubstitutionObjectWithProperty(result, segment)) {
                 result = result[segment]
             } else {
                 return { present: false}
@@ -70,6 +74,10 @@ export class CompiledTemplateEvaluator {
         }
 
         return { value: result, present: true }
+    }
+
+    private isSubstitutionObjectWithProperty(obj: object, property: String): obj is SubstitutionObject {
+        return (typeof obj === 'object' && Object.prototype.hasOwnProperty.call(obj, property))
     }
 
     private resolveFilter(input: string, filter: CompiledFilter, options: EvaluationOptions): ResolutionResult {
