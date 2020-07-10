@@ -1,68 +1,120 @@
-[
-    {
-        "title": "it should return a single text fragment for an empty template",
-        "template": "",
-        "expected": {
-            "fragments": [
-                {
-                    "text": ""
+{
+    "default settings": {
+        "no expressions": [
+            {
+                "title": "it should return an empty fragment array for an empty template",
+                "template": "",
+                "expected": {
+                    "fragments": []
                 }
-            ]
-        }
-    },
-    {
-        "title": "it should return a single text fragment for a template without expressions",
-        "template": "Hello, world!",
-        "expected": {
-            "fragments": [
-                {
-                    "text": "Hello, world!"
+            },
+            {
+                "title": "it should return a single text fragment for a template without expressions",
+                "template": "Hello, world!",
+                "expected": {
+                    "fragments": [
+                        {
+                            "text": "Hello, world!"
+                        }
+                    ]
                 }
-            ]
-        }
-    },
-    {
-        "title": "it should return a single text fragment for a template with an escaped expression begin",
-        "template": "Hello, \\{{ world!",
-        "expected": {
-            "fragments": [
-                {
-                    "text": "Hello, {{ world!"
+            },
+            {
+                "title": "it should return a single text fragment for a template with an escaped expression begin",
+                "template": "Hello, \\{{ world!",
+                "expected": {
+                    "fragments": [
+                        {
+                            "text": "Hello, {{ world!"
+                        }
+                    ]
                 }
-            ]
-        }
-    },
-    {
-        "title": "it should return a single text fragment for a template with subsequent escaped expression begins",
-        "template": "Hello, \\{{\\{{ world!",
-        "expected": {
-            "fragments": [
-                {
-                    "text": "Hello, {{{{ world!"
+            },
+            {
+                "title": "it should return a single text fragment for a template with subsequent escaped expression begins",
+                "template": "Hello, \\{{\\{{ world!",
+                "expected": {
+                    "fragments": [
+                        {
+                            "text": "Hello, {{{{ world!"
+                        }
+                    ]
                 }
-            ]
-        }
-    },
-    {
-        "title": "it should return a single text fragment for a template with overlapping escaped expression begins (first-escaped)",
-        "template": "Hello, \\{{{ world!",
-        "expected": {
-            "fragments": [
-                {
-                    "text": "Hello, {{{ world!"
+            },
+            {
+                "title": "it should return a single text fragment for a template with overlapping escaped expression begins (first-escaped)",
+                "template": "Hello, \\{{{ world!",
+                "expected": {
+                    "fragments": [
+                        {
+                            "text": "Hello, {{{ world!"
+                        }
+                    ]
                 }
-            ]
-        }
-    },
-    {
-        "title": "it should return a single text fragment for a template with overlapping escaped expression begins (second-escaped)",
-        "template": "Hello, {\\{{ world!",
-        "expected": {
-            "fragments": [
-                {
-                    "text": "Hello, {{{ world!"
+            },
+            {
+                "title": "it should return a single text fragment for a template with overlapping escaped expression begins (second-escaped)",
+                "template": "Hello, {\\{{ world!",
+                "expected": {
+                    "fragments": [
+                        {
+                            "text": "Hello, {{{ world!"
+                        }
+                    ]
                 }
-            ]
-        }
+            }
+        ],
+        "expressions without filters": [
+            {
+                "title": "it should return a single expression fragment for an expression-only template",
+                "template": "{{ key }}",
+                "expected": {
+                    "fragments": [
+                        {
+                            "pointerSegments": [
+                                "key"
+                            ],
+                            "filters": []
+                        }
+                    ]
+                }
+            },
+            {
+                "title": "it should return a single expression fragment for an expression-only template with no spaces inside the expression",
+                "template": "{{key}}",
+                "expected": {
+                    "fragments": [
+                        {
+                            "pointerSegments": [
+                                "key"
+                            ],
+                            "filters": []
+                        }
+                    ]
+                }
+            },
+            {
+                "title": "it should return a single expression fragment for an expression-only template with properly split pointer segments",
+                "template": "{{ a.b.c.d.e.f.g.hkjk.lkjh }}",
+                "expected": {
+                    "fragments": [
+                        {
+                            "pointerSegments": [
+                                "a",
+                                "b",
+                                "c",
+                                "d",
+                                "e",
+                                "f",
+                                "g",
+                                "hkjk",
+                                "lkjh"
+                            ],
+                            "filters": []
+                        }
+                    ]
+                }
+            }
+        ]
     }
-]
+}
