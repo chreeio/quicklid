@@ -5,7 +5,7 @@ import { tokens } from './TemplateEvaluator'
 const NOT_FOUND = -1
 
 export class TemplateCompiler {
-    private static readonly ESCAPED_EXPRESSION_BEGIN_REGEXP = new RegExp(tokens.ESCAPE_CHARACTER + tokens.EXPRESSION_BEGIN, 'g')
+    private static readonly ESCAPED_EXPRESSION_BEGIN_REGEXP = new RegExp('\\' + tokens.ESCAPE_CHARACTER + tokens.EXPRESSION_BEGIN, 'g')
 
     compileTemplate(template: String, options: CompilationOptions): CompiledTemplate {
         const fragments: CompiledTemplateFragment[] = []
@@ -15,7 +15,7 @@ export class TemplateCompiler {
         let nextExpressionStart = -1
 
         while ((nextExpressionStart = template.indexOf(tokens.EXPRESSION_BEGIN, skipPosition)) !== NOT_FOUND) {
-            if ((nextExpressionStart - 1) > 0 && (template[nextExpressionStart - 1] == tokens.ESCAPE_CHARACTER)) {
+            if ((nextExpressionStart - 1) > 0 && (template.charAt(nextExpressionStart - 1) == tokens.ESCAPE_CHARACTER)) {
                 skipPosition += tokens.EXPRESSION_BEGIN.length
                 continue
             }
