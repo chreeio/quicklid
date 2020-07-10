@@ -59,7 +59,7 @@ export class TemplateCompiler {
         this.replaceEscapedExpressionBegins(fragments)
         
         return {
-            fragments
+            fragments: this.removeEmptyTextFragments(fragments)
         }
     }
 
@@ -70,6 +70,16 @@ export class TemplateCompiler {
                 const tf = fragment as TextFragment
                 tf.text = tf.text.replace(TemplateCompiler.ESCAPED_EXPRESSION_BEGIN_REGEXP, tokens.EXPRESSION_BEGIN)
             })
+    }
+
+    private removeEmptyTextFragments(fragments: CompiledTemplateFragment[]): CompiledTemplateFragment[] {
+        return fragments.filter(fragment => {
+            if (this.isTextFragment(fragment)) {
+                return fragment.text != ''
+            } else {
+                return true
+            }
+        })
     }
 
     private isTextFragment(fragment: CompiledTemplateFragment): fragment is TextFragment {
