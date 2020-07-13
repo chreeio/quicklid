@@ -1,8 +1,11 @@
 import { DefaultTemplateEvaluator } from './evaluator/DefaultTemplateEvaluator'
-import { TemplateEvaluator } from './evaluator/TemplateEvaluator'
+import { defaultEvaluationOptions, TemplateEvaluator } from './evaluator/TemplateEvaluator'
 
-export function createInstance(): TemplateEvaluator {
+function createInstance(): TemplateEvaluator {
     return new DefaultTemplateEvaluator()
 }
 
-export { defaultEvaluationOptions } from './evaluator/TemplateEvaluator'
+export default {
+    createInstance,
+    defaultEvaluationOptions
+}
