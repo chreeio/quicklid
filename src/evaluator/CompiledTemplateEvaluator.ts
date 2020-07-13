@@ -51,7 +51,7 @@ export class CompiledTemplateEvaluator {
     private evaluateFilter(input: string, filter: CompiledFilter, options: EvaluationOptions): string {
         const resolutionResult = this.resolveFilter(input, filter, options)
 
-        if (!resolutionResult.present && options.allowUnknownFilters) {
+        if (!resolutionResult.present && !options.allowUnknownFilters) {
             throw new UnknownFilterError()
         }
 
