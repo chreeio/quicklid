@@ -195,6 +195,36 @@
                         }
                     ]
                 }
+            },
+            {
+                "title": "it should correctly compile an expression with two multi argument filters",
+                "template": "{{ number | add: 2, 3 | multiply: 2.5, 3.5, \"a\" }}",
+                "expected": {
+                    "fragments": [
+                        {
+                            "pointerSegments": [
+                                "number"
+                            ],
+                            "filters": [
+                                {
+                                    "name": "add",
+                                    "args": [
+                                        "2",
+                                        "3"
+                                    ]
+                                },
+                                {
+                                    "name": "multiply",
+                                    "args": [
+                                        "2.5",
+                                        "3.5",
+                                        "a"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
             }
         ]
     }
