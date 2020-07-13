@@ -170,7 +170,7 @@
                 }
             },
             {
-                "title": "it should correctly compile an expressions with two single-argument filters",
+                "title": "it should correctly compile an expression with two single-argument filters",
                 "template": "{{ number | add: 2 | multiply: 2.5 }}",
                 "expected": {
                     "fragments": [
