@@ -126,6 +126,29 @@
         ],
         "expressions with filters": [
             {
+                "title": "it should correctly compile an expression with no argument filters",
+                "template": "{{ name | capitalize | reverse }}",
+                "expected": {
+                    "fragments": [
+                        {
+                            "pointerSegments": [
+                                "name"
+                            ],
+                            "filters": [
+                                {
+                                    "name": "capitalize",
+                                    "args": []
+                                },
+                                {
+                                    "name": "reverse",
+                                    "args": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
                 "title": "it should correctly compile an expression with a single filter having a single string argument",
                 "template": "{{ timestamp | formatDate: \"YYYY. DD. MM.\" }}",
                 "expected": {
