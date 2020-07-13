@@ -1,4 +1,3 @@
-import { CompilationOptions } from "./CompilationOptions"
 import { CompiledTemplate, CompiledTemplateFragment, TextFragment, ExpressionFragment, CompiledFilter } from "./CompiledTemplate"
 
 enum TokenType {
@@ -24,7 +23,7 @@ export class TemplateCompiler {
 
     private static readonly POINTER_REGEXP = /^[a-zA-Z0-9_\.\-]+$/g
 
-    compileTemplate(template: string, options: CompilationOptions): CompiledTemplate {
+    compileTemplate(template: string): CompiledTemplate {
         const fragments: CompiledTemplateFragment[] = []
 
         let lastPosition = 0

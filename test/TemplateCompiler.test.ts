@@ -1,6 +1,5 @@
 import 'jest'
 
-import * as Quicklid from '../src/index'
 import { TemplateCompiler } from '../src/evaluator/TemplateCompiler'
 import { CompiledTemplate } from '../src/evaluator/CompiledTemplate'
 
@@ -26,7 +25,7 @@ function positiveTest(testCase: TestCase) {
         const underTest = new TemplateCompiler()
 
         // When
-        const actual = underTest.compileTemplate(testCase.template, Quicklid.defaultCompilationOptions)
+        const actual = underTest.compileTemplate(testCase.template)
 
         // Then
         expect(actual).toEqual(testCase.expected)
@@ -39,7 +38,7 @@ function negativeTest(testCase: TestCase) {
         const underTest = new TemplateCompiler()
 
         // Expect
-        expect(() => underTest.compileTemplate(testCase.template, Quicklid.defaultCompilationOptions))
+        expect(() => underTest.compileTemplate(testCase.template))
             .toThrow()
     })
 }

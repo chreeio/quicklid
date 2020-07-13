@@ -1,5 +1,4 @@
-import { TemplateEvaluator, defaultCompilationOptions, defaultEvaluationOptions } from './TemplateEvaluator'
-import { CompilationOptions } from './CompilationOptions';
+import { TemplateEvaluator, defaultEvaluationOptions } from './TemplateEvaluator'
 import { CompiledTemplate } from './CompiledTemplate';
 import { CompiledTemplateEvaluator } from './CompiledTemplateEvaluator'
 import { EvaluationOptions } from './EvaluationOptions';
@@ -14,10 +13,8 @@ export class DefaultTemplateEvaluator implements TemplateEvaluator {
         this.evaluator = new CompiledTemplateEvaluator()
     }
 
-    compileTemplate(template: String, options?: Partial<CompilationOptions>): CompiledTemplate {
-        const setOptions: CompilationOptions = { ...defaultCompilationOptions, ...(options || {}) }
-
-        return this.compiler.compileTemplate(template, setOptions)
+    compileTemplate(template: string): CompiledTemplate {
+        return this.compiler.compileTemplate(template)
     }
 
     evaluateCompiledTemplate(compiledTemplate: CompiledTemplate, substitutionData: object, options?: Partial<EvaluationOptions>): string {

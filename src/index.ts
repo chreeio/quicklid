@@ -5,4 +5,4 @@ export function createInstance(): TemplateEvaluator {
     return new DefaultTemplateEvaluator()
 }
 
-export { defaultCompilationOptions, defaultEvaluationOptions } from './evaluator/TemplateEvaluator'
+export { defaultEvaluationOptions } from './evaluator/TemplateEvaluator'

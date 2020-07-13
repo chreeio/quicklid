@@ -1,4 +1,3 @@
-import { CompilationOptions } from './CompilationOptions'
 import { EvaluationOptions } from './EvaluationOptions'
 
 import { CompiledTemplate } from './CompiledTemplate'
@@ -11,7 +10,7 @@ export interface TemplateEvaluator {
      * throws TemplateSyntaxError
      * @param template 
      */
-    compileTemplate(template: String, options?: Partial<CompilationOptions>): CompiledTemplate
+    compileTemplate(template: String): CompiledTemplate
 
     /**
      * throws UnknownFilterError, throws UnknownPropertyError
@@ -20,14 +19,6 @@ export interface TemplateEvaluator {
      * @param options 
      */
     evaluateCompiledTemplate(compiledTemplate: CompiledTemplate, substitutionData: object, options?: Partial<EvaluationOptions>): string    
-}
-
-/**
- * 
- */
-export const defaultCompilationOptions: Readonly<CompilationOptions> = {
-    requireColonAfterFilter: true,
-    requireCommaBetweenArgs: true
 }
 
 /**
