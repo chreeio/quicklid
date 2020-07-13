@@ -16,7 +16,7 @@ export class CompiledTemplateEvaluator {
     evaluateCompiledTemplate(compiledTemplate: CompiledTemplate, substitutionData: object, options: EvaluationOptions): string {
         const result = compiledTemplate.fragments
             .map(fragment => this.evaluateFragment(fragment, substitutionData, options))
-            .join()
+            .join('')
 
         return result
     }
