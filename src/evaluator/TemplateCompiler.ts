@@ -1,6 +1,5 @@
-import { CompilationOptions } from "./CompilationOptions";
-import { CompiledTemplate, CompiledTemplateFragment, TextFragment, ExpressionFragment, CompiledFilter } from "./CompiledTemplate";
-import { tokens } from './TemplateEvaluator'
+import { CompilationOptions } from "./CompilationOptions"
+import { CompiledTemplate, CompiledTemplateFragment, TextFragment, ExpressionFragment, CompiledFilter } from "./CompiledTemplate"
 
 enum TokenType {
     EXPRESSION_BEGIN = '{{',
@@ -21,7 +20,7 @@ interface TokenMatch {
 const TOKEN_NOT_FOUND: TokenMatch = null
 
 export class TemplateCompiler {
-    private static readonly ESCAPED_EXPRESSION_BEGIN_REGEXP = new RegExp('\\' + tokens.ESCAPE_CHARACTER + tokens.EXPRESSION_BEGIN, 'g')
+    private static readonly ESCAPED_EXPRESSION_BEGIN_REGEXP = new RegExp('\\' + TokenType.ESCAPE_CHARACTER + TokenType.EXPRESSION_BEGIN, 'g')
 
     private static readonly POINTER_REGEXP = /^[a-zA-Z0-9_\.\-]+$/g
 
@@ -45,23 +44,23 @@ export class TemplateCompiler {
 
             if (nextToken.type === TokenType.EXPRESSION_END) {
                 const pointer = template.substring(
-                    nextExpressionStart + tokens.EXPRESSION_BEGIN.length,
+                    nextExpressionStart + TokenType.EXPRESSION_BEGIN.length,
                     nextToken.position
                 ).trim()
                 this.validatePointer(pointer)
 
-                const pointerSegments = pointer.split(tokens.POINTER_SEGMENT_SEPARATOR)
+                const pointerSegments = pointer.split(TokenType.POINTER_SEGMENT_SEPARATOR)
                 fragments.push({ pointerSegments, filters: [] })
 
-                lastPosition = nextToken.position + tokens.EXPRESSION_END.length
+                lastPosition = nextToken.position + TokenType.EXPRESSION_END.length
             } else if (nextToken.type === TokenType.FILTER_DELIMITER) {
                 const pointer = template.substring(
-                    nextExpressionStart + tokens.EXPRESSION_BEGIN.length,
+                    nextExpressionStart + TokenType.EXPRESSION_BEGIN.length,
                     nextToken.position
                 ).trim()
                 this.validatePointer(pointer)
 
-                const pointerSegments = pointer.split(tokens.POINTER_SEGMENT_SEPARATOR)
+                const pointerSegments = pointer.split(TokenType.POINTER_SEGMENT_SEPARATOR)
                 const { filters, endPosition } = this.parseFilters(template, nextToken.position + 1)
                 fragments.push({ pointerSegments, filters } as ExpressionFragment)
 
@@ -202,7 +201,7 @@ export class TemplateCompiler {
             .filter(fragment => this.isTextFragment(fragment))
             .forEach(fragment => {
                 const tf = fragment as TextFragment
-                tf.text = tf.text.replace(TemplateCompiler.ESCAPED_EXPRESSION_BEGIN_REGEXP, tokens.EXPRESSION_BEGIN)
+                tf.text = tf.text.replace(TemplateCompiler.ESCAPED_EXPRESSION_BEGIN_REGEXP, TokenType.EXPRESSION_BEGIN)
             })
     }
 
