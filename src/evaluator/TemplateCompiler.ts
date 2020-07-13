@@ -86,7 +86,7 @@ export class TemplateCompiler {
         let lastPosition = firstFilterStart
 
         let filterName: string = null
-        let args: string[] = null
+        let args: string[] = []
 
         let nextToken: TokenMatch = null
         while ((nextToken = this.nextSignificantToken(template, lastPosition, true, false)) !== TOKEN_NOT_FOUND) {
