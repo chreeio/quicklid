@@ -31,7 +31,7 @@ export const defaultEvaluationOptions: Readonly<EvaluationOptions> = {
 
     allowUnknownFilters: true,
 
-    unknownFilterPlaceholder(input: string, args: string[]): string {
+    unknownFilterPlaceholder(input: string): string {
         return input
     },
 

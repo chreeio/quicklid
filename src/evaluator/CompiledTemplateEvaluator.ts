@@ -76,7 +76,7 @@ export class CompiledTemplateEvaluator {
         return { value: result, present: true }
     }
 
-    private isSubstitutionObjectWithProperty(obj: object, property: String): obj is SubstitutionObject {
+    private isSubstitutionObjectWithProperty(obj: object, property: string): obj is SubstitutionObject {
         return (typeof obj === 'object' && Object.prototype.hasOwnProperty.call(obj, property))
     }
 

@@ -16,8 +16,6 @@ interface TokenMatch {
     type: TokenType
 }
 
-const TOKEN_NOT_FOUND: TokenMatch = null
-
 export class TemplateCompiler {
     private static readonly ESCAPED_EXPRESSION_BEGIN_REGEXP = new RegExp('\\' + TokenType.ESCAPE_CHARACTER + TokenType.EXPRESSION_BEGIN, 'g')
 
@@ -29,9 +27,9 @@ export class TemplateCompiler {
         let lastPosition = 0
         let nextExpressionStart = -1
 
-        let nextToken: TokenMatch = TOKEN_NOT_FOUND
+        let nextToken: TokenMatch | null = null
 
-        while ((nextToken = this.nextSignificantToken(template, lastPosition, false, false)) !== TOKEN_NOT_FOUND) {
+        while ((nextToken = this.nextSignificantToken(template, lastPosition, false, false)) !== null) {
             nextExpressionStart = nextToken.position
 
             fragments.push({ text: template.substring(lastPosition, nextExpressionStart) })
@@ -83,11 +81,11 @@ export class TemplateCompiler {
 
         let lastPosition = firstFilterStart
 
-        let filterName: string = null
+        let filterName: string | null = null
         let args: string[] = []
 
-        let nextToken: TokenMatch = null
-        while ((nextToken = this.nextSignificantToken(template, lastPosition, true, false)) !== TOKEN_NOT_FOUND) {
+        let nextToken: TokenMatch | null = null
+        while ((nextToken = this.nextSignificantToken(template, lastPosition, true, false)) !== null) {
             switch (nextToken.type) {
                 case TokenType.EXPRESSION_END:
                     if (!filterName) {
@@ -150,6 +148,10 @@ export class TemplateCompiler {
         while (shouldContinue) {
             let nextToken = this.nextSignificantToken(template, lastPosition, true, false)
 
+            if (!nextToken) {
+                throw new Error('Token expected')
+            }
+
             switch (nextToken.type) {
                 case TokenType.ARGUMENT_DELIMITER:
                     if (!argumentPushed) {
@@ -164,6 +166,10 @@ export class TemplateCompiler {
                 case TokenType.STRING_DELIMITER:
                     const stringStart = nextToken.position + 1
                     const stringEndToken = this.nextSignificantToken(template, nextToken.position + 1, true, true)
+
+                    if (!stringEndToken) {
+                        throw new Error('Token expected')
+                    }
 
                     args.push(template.substring(stringStart, stringEndToken.position))
 
@@ -219,7 +225,7 @@ export class TemplateCompiler {
     }
 
     
-    private nextSignificantToken(template: string, from: number = 0, isInsideExpression: boolean = false, isInsideString: boolean = false): TokenMatch {
+    private nextSignificantToken(template: string, from: number = 0, isInsideExpression: boolean = false, isInsideString: boolean = false): TokenMatch | null {
         let index = from
         while (index < template.length) {
             if (!isInsideExpression) {
