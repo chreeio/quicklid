@@ -6,6 +6,7 @@ devDependencies:
   '@typescript-eslint/parser': registry.npmjs.org/@typescript-eslint/parser/3.6.1_eslint@7.4.0+typescript@3.9.6
   eslint: registry.npmjs.org/eslint/7.4.0
   eslint-config-prettier: registry.npmjs.org/eslint-config-prettier/6.11.0_eslint@7.4.0
+  eslint-plugin-prettier: registry.npmjs.org/eslint-plugin-prettier/3.1.4_eslint@7.4.0+prettier@2.0.5
   husky: registry.npmjs.org/husky/4.2.5
   jest: registry.npmjs.org/jest/26.1.0
   prettier: registry.npmjs.org/prettier/2.0.5
@@ -2666,6 +2667,24 @@ packages:
       registry: 'https://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/eslint-config-prettier/-/eslint-config-prettier-6.11.0.tgz'
     version: 6.11.0
+  registry.npmjs.org/eslint-plugin-prettier/3.1.4_eslint@7.4.0+prettier@2.0.5:
+    dependencies:
+      eslint: registry.npmjs.org/eslint/7.4.0
+      prettier: registry.npmjs.org/prettier/2.0.5
+      prettier-linter-helpers: registry.npmjs.org/prettier-linter-helpers/1.0.0
+    dev: true
+    engines:
+      node: '>=6.0.0'
+    id: registry.npmjs.org/eslint-plugin-prettier/3.1.4
+    name: eslint-plugin-prettier
+    peerDependencies:
+      eslint: '>=5.0.0'
+      prettier: '>=1.13.0'
+    resolution:
+      integrity: sha512-jZDa8z76klRqo+TdGDTFJSavwbnWK2ZpqGKNZ+VvweMW516pDUMmQ2koXvxEE4JhzNvTv+radye/bWGBmA6jmg==
+      registry: 'https://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/eslint-plugin-prettier/-/eslint-plugin-prettier-3.1.4.tgz'
+    version: 3.1.4
   registry.npmjs.org/eslint-scope/5.1.0:
     dependencies:
       esrecurse: registry.npmjs.org/esrecurse/4.2.1
@@ -2989,6 +3008,14 @@ packages:
       registry: 'https://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz'
     version: 3.1.3
+  registry.npmjs.org/fast-diff/1.2.0:
+    dev: true
+    name: fast-diff
+    resolution:
+      integrity: sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
+      registry: 'https://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/fast-diff/-/fast-diff-1.2.0.tgz'
+    version: 1.2.0
   registry.npmjs.org/fast-json-stable-stringify/2.1.0:
     dev: true
     name: fast-json-stable-stringify
@@ -5970,6 +5997,18 @@ packages:
       registry: 'https://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz'
     version: 1.2.1
+  registry.npmjs.org/prettier-linter-helpers/1.0.0:
+    dependencies:
+      fast-diff: registry.npmjs.org/fast-diff/1.2.0
+    dev: true
+    engines:
+      node: '>=6.0.0'
+    name: prettier-linter-helpers
+    resolution:
+      integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==
+      registry: 'https://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/prettier-linter-helpers/-/prettier-linter-helpers-1.0.0.tgz'
+    version: 1.0.0
   registry.npmjs.org/prettier/2.0.5:
     dev: true
     engines:
@@ -8128,6 +8167,7 @@ specifiers:
   '@typescript-eslint/parser': 3.6.1
   eslint: 7.4.0
   eslint-config-prettier: 6.11.0
+  eslint-plugin-prettier: 3.1.4
   husky: 4.2.5
   jest: 26.1.0
   prettier: 2.0.5
