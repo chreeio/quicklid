@@ -1,3 +1,1 @@
-export class TemplateSyntaxError extends Error {
-
-}
+export class TemplateSyntaxError extends Error {}

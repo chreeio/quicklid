@@ -1,96 +1,115 @@
-import { CompiledTemplate, CompiledTemplateFragment, TextFragment, ExpressionFragment, CompiledFilter } from './CompiledTemplate'
+import {
+  CompiledTemplate,
+  CompiledTemplateFragment,
+  TextFragment,
+  ExpressionFragment,
+  CompiledFilter,
+} from './CompiledTemplate'
 import { EvaluationOptions } from './EvaluationOptions'
 import { UnknownFilterError } from './UnknownFilterError'
 import { UnknownPropertyError } from './UnknownPropertyError'
 
 interface ResolutionResult {
-    value?: any,
-    present: boolean
+  value?: any
+  present: boolean
 }
 
 type SubstitutionObject = {
-    [propertyName: string]: any
+  [propertyName: string]: any
 }
 
 export class CompiledTemplateEvaluator {
-    evaluateCompiledTemplate(compiledTemplate: CompiledTemplate, substitutionData: object, options: EvaluationOptions): string {
-        const result = compiledTemplate.fragments
-            .map(fragment => this.evaluateFragment(fragment, substitutionData, options))
-            .join('')
+  evaluateCompiledTemplate(
+    compiledTemplate: CompiledTemplate,
+    substitutionData: object,
+    options: EvaluationOptions
+  ): string {
+    const result = compiledTemplate.fragments
+      .map((fragment) => this.evaluateFragment(fragment, substitutionData, options))
+      .join('')
 
-        return result
+    return result
+  }
+
+  private evaluateFragment(
+    fragment: CompiledTemplateFragment,
+    substitutionData: object,
+    options: EvaluationOptions
+  ): string {
+    return this.isTextFragment(fragment)
+      ? fragment.text
+      : this.evaluateExpressionFragment(fragment, substitutionData, options)
+  }
+
+  private evaluateExpressionFragment(
+    fragment: ExpressionFragment,
+    substitutionData: object,
+    options: EvaluationOptions
+  ): string {
+    const pointerValue = this.evaluatePointerValue(fragment.pointerSegments, substitutionData, options)
+
+    return fragment.filters.reduce((input, filter) => this.evaluateFilter(input, filter, options), pointerValue)
+  }
+
+  private evaluatePointerValue(
+    pointerSegments: string[],
+    substitutionData: object,
+    options: EvaluationOptions
+  ): string {
+    const resolutionResult = this.resolvePointer(pointerSegments, substitutionData)
+
+    if (!resolutionResult.present && !options.allowUnknownProperties) {
+      throw new UnknownPropertyError()
     }
 
-    private evaluateFragment(fragment: CompiledTemplateFragment, substitutionData: object, options: EvaluationOptions): string {
-        return this.isTextFragment(fragment)
-                ? fragment.text
-                : this.evaluateExpressionFragment(fragment, substitutionData, options)
+    const property = resolutionResult.present ? resolutionResult.value : options.unknownPropertyPlaceholder
+
+    return `${property}`
+  }
+
+  private evaluateFilter(input: string, filter: CompiledFilter, options: EvaluationOptions): string {
+    const resolutionResult = this.resolveFilter(input, filter, options)
+
+    if (!resolutionResult.present && !options.allowUnknownFilters) {
+      throw new UnknownFilterError()
     }
 
-    private evaluateExpressionFragment(fragment: ExpressionFragment, substitutionData: object, options: EvaluationOptions): string {
-        const pointerValue = this.evaluatePointerValue(fragment.pointerSegments, substitutionData, options)
+    const value = resolutionResult.present
+      ? resolutionResult.value
+      : options.unknownFilterPlaceholder(input, filter.args)
 
-        return fragment.filters
-            .reduce((input, filter) => this.evaluateFilter(input, filter, options), pointerValue)
+    return value
+  }
+
+  private resolvePointer(pointerSegments: string[], substitutionData: object): ResolutionResult {
+    let result = substitutionData
+
+    for (const segment of pointerSegments) {
+      if (this.isSubstitutionObjectWithProperty(result, segment)) {
+        result = result[segment]
+      } else {
+        return { present: false }
+      }
     }
 
-    private evaluatePointerValue(pointerSegments: string[], substitutionData: object, options: EvaluationOptions): string {
-        const resolutionResult = this.resolvePointer(pointerSegments, substitutionData)
+    return { value: result, present: true }
+  }
 
-        if (!resolutionResult.present && !options.allowUnknownProperties) {
-            throw new UnknownPropertyError()
-        }
+  private isSubstitutionObjectWithProperty(obj: object, property: string): obj is SubstitutionObject {
+    return typeof obj === 'object' && Object.prototype.hasOwnProperty.call(obj, property)
+  }
 
-        const property = resolutionResult.present
-            ? resolutionResult.value
-            : options.unknownPropertyPlaceholder
+  private resolveFilter(input: string, filter: CompiledFilter, options: EvaluationOptions): ResolutionResult {
+    const filterFunction = options.filters[filter.name]
 
-        return `${property}`
+    if (!filterFunction) {
+      return { present: false }
     }
 
-    private evaluateFilter(input: string, filter: CompiledFilter, options: EvaluationOptions): string {
-        const resolutionResult = this.resolveFilter(input, filter, options)
+    return { value: filterFunction(input, filter.args), present: true }
+  }
 
-        if (!resolutionResult.present && !options.allowUnknownFilters) {
-            throw new UnknownFilterError()
-        }
-
-        const value = resolutionResult.present
-            ? resolutionResult.value
-            : options.unknownFilterPlaceholder(input, filter.args)
-
-        return value
-    }
-    
-    private resolvePointer(pointerSegments: string[], substitutionData: object): ResolutionResult {
-        let result = substitutionData
-
-        for (const segment of pointerSegments) {
-            if (this.isSubstitutionObjectWithProperty(result, segment)) {
-                result = result[segment]
-            } else {
-                return { present: false}
-            }
-        }
-
-        return { value: result, present: true }
-    }
-
-    private isSubstitutionObjectWithProperty(obj: object, property: string): obj is SubstitutionObject {
-        return (typeof obj === 'object' && Object.prototype.hasOwnProperty.call(obj, property))
-    }
-
-    private resolveFilter(input: string, filter: CompiledFilter, options: EvaluationOptions): ResolutionResult {
-        const filterFunction = options.filters[filter.name]
-
-        if (!filterFunction) {
-            return { present: false }
-        }
-
-        return { value: filterFunction(input, filter.args), present: true }
-    }
-
-    private isTextFragment(fragment: CompiledTemplateFragment): fragment is TextFragment {
-        return (fragment as TextFragment).text !== undefined
-    }
+  private isTextFragment(fragment: CompiledTemplateFragment): fragment is TextFragment {
+    return (fragment as TextFragment).text !== undefined
+  }
 }

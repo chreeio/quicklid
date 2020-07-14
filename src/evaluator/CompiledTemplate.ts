@@ -1,47 +1,47 @@
 /**
- * 
+ *
  */
 export interface CompiledFilter {
-    /**
-     * 
-     */
-    name: string,
+  /**
+   *
+   */
+  name: string
 
-    /**
-     * 
-     */
-    args: string[]
+  /**
+   *
+   */
+  args: string[]
 }
 
 /**
- * 
+ *
  */
 export interface TextFragment {
-    /**
-     * 
-     */
-    text: string
+  /**
+   *
+   */
+  text: string
 }
 
 /**
- * 
+ *
  */
 export interface ExpressionFragment {
-    pointerSegments: string[],
-    filters: CompiledFilter[]
+  pointerSegments: string[]
+  filters: CompiledFilter[]
 }
 
 /**
- * 
+ *
  */
 export type CompiledTemplateFragment = TextFragment | ExpressionFragment
 
 /**
- * 
+ *
  */
 export interface CompiledTemplate {
-    /**
-     * 
-     */
-    fragments: CompiledTemplateFragment[]
+  /**
+   *
+   */
+  fragments: CompiledTemplateFragment[]
 }

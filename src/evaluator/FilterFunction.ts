@@ -1,6 +1,6 @@
 /**
- * 
+ *
  */
 export interface FilterFunction {
-    (input: string, args: string[]): string
+  (input: string, args: string[]): string
 }

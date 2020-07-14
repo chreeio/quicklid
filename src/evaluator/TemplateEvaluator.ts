@@ -3,37 +3,41 @@ import { EvaluationOptions } from './EvaluationOptions'
 import { CompiledTemplate } from './CompiledTemplate'
 
 /**
- * 
+ *
  */
 export interface TemplateEvaluator {
-    /**
-     * throws TemplateSyntaxError
-     * @param template 
-     */
-    compileTemplate(template: String): CompiledTemplate
+  /**
+   * throws TemplateSyntaxError
+   * @param template
+   */
+  compileTemplate(template: string): CompiledTemplate
 
-    /**
-     * throws UnknownFilterError, throws UnknownPropertyError
-     * @param compiledTemplate 
-     * @param substitutionData 
-     * @param options 
-     */
-    evaluateCompiledTemplate(compiledTemplate: CompiledTemplate, substitutionData: object, options?: Partial<EvaluationOptions>): string    
+  /**
+   * throws UnknownFilterError, throws UnknownPropertyError
+   * @param compiledTemplate
+   * @param substitutionData
+   * @param options
+   */
+  evaluateCompiledTemplate(
+    compiledTemplate: CompiledTemplate,
+    substitutionData: object,
+    options?: Partial<EvaluationOptions>
+  ): string
 }
 
 /**
- * 
+ *
  */
 export const defaultEvaluationOptions: Readonly<EvaluationOptions> = {
-    allowUnknownProperties: true,
+  allowUnknownProperties: true,
 
-    unknownPropertyPlaceholder: 'undefined',
+  unknownPropertyPlaceholder: 'undefined',
 
-    allowUnknownFilters: true,
+  allowUnknownFilters: true,
 
-    unknownFilterPlaceholder(input: string): string {
-        return input
-    },
+  unknownFilterPlaceholder(input: string): string {
+    return input
+  },
 
-    filters: {}
+  filters: {},
 }

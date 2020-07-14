@@ -1,6 +1,6 @@
 /**
- * 
+ *
  */
 export class UnknownPropertyError extends Error {
-    // property: string
+  // property: string
 }

@@ -1,33 +1,33 @@
 import { FilterFunction } from './FilterFunction'
 
 /**
- * 
+ *
  */
 export interface EvaluationOptions {
-    /**
-     * 
-     */
-    allowUnknownProperties: boolean
+  /**
+   *
+   */
+  allowUnknownProperties: boolean
 
-    /**
-     * 
-     */
-    unknownPropertyPlaceholder: string
+  /**
+   *
+   */
+  unknownPropertyPlaceholder: string
 
-    /**
-     * 
-     */
-    allowUnknownFilters: boolean
+  /**
+   *
+   */
+  allowUnknownFilters: boolean
 
-    /**
-     * 
-     */
-    unknownFilterPlaceholder: FilterFunction,
+  /**
+   *
+   */
+  unknownFilterPlaceholder: FilterFunction
 
-    /**
-     * 
-     */
-    filters: {
-        [filterName: string]: FilterFunction
-    }
+  /**
+   *
+   */
+  filters: {
+    [filterName: string]: FilterFunction
+  }
 }
