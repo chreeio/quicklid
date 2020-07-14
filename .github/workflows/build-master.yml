@@ -42,8 +42,8 @@ jobs:
         
     - name: Use Node.js
       uses: actions/setup-node@v1
-        with:
-          node-version: 14
+      with:
+        node-version: 14
         
     - name: Install pnpm
       run: |
@@ -70,8 +70,8 @@ jobs:
         
     - name: Use Node.js
       uses: actions/setup-node@v1
-        with:
-          node-version: 14
+      with:
+        node-version: 14
         
     - name: Install pnpm
       run: |
@@ -106,4 +106,4 @@ jobs:
         ref: gh-pages
         message: Updated the master documentation
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
