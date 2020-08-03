@@ -68,7 +68,7 @@ export class CompiledTemplateEvaluator {
     const resolutionResult = this.resolvePointer(pointerSegments, substitutionData)
 
     if (!resolutionResult.present && !options.allowUnknownProperties) {
-      throw new UnknownPropertyError()
+      throw new UnknownPropertyError(pointerSegments.join('.'))
     }
 
     const property = resolutionResult.present ? resolutionResult.value : options.unknownPropertyPlaceholder
@@ -80,7 +80,7 @@ export class CompiledTemplateEvaluator {
     const resolutionResult = this.resolveFilter(input, filter, options)
 
     if (!resolutionResult.present && !options.allowUnknownFilters) {
-      throw new UnknownFilterError()
+      throw new UnknownFilterError(filter.name)
     }
 
     const value = resolutionResult.present

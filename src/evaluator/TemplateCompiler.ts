@@ -5,6 +5,7 @@ import {
   ExpressionFragment,
   CompiledFilter,
 } from './CompiledTemplate'
+import { TemplateSyntaxError, TemplateSyntaxErrorType } from './TemplateSyntaxError'
 
 enum TokenType {
   EXPRESSION_BEGIN = '{{',
@@ -53,14 +54,14 @@ export class TemplateCompiler {
 
       nextToken = this.nextSignificantToken(template, nextToken.position + 1, true, false)
       if (!nextToken) {
-        throw new Error('nooooo')
+        throw new TemplateSyntaxError(TemplateSyntaxErrorType.UNCLOSED_TEMPLATE_EXPRESSION, nextExpressionStart)
       }
 
       if (nextToken.type === TokenType.EXPRESSION_END) {
         const pointer = template
           .substring(nextExpressionStart + TokenType.EXPRESSION_BEGIN.length, nextToken.position)
           .trim()
-        this.validatePointer(pointer)
+        this.validatePointer(nextExpressionStart, pointer)
 
         const pointerSegments = pointer.split(TokenType.POINTER_SEGMENT_SEPARATOR)
         fragments.push({ pointerSegments, filters: [] })
@@ -70,7 +71,7 @@ export class TemplateCompiler {
         const pointer = template
           .substring(nextExpressionStart + TokenType.EXPRESSION_BEGIN.length, nextToken.position)
           .trim()
-        this.validatePointer(pointer)
+        this.validatePointer(nextExpressionStart, pointer)
 
         const pointerSegments = pointer.split(TokenType.POINTER_SEGMENT_SEPARATOR)
         const { filters, endPosition } = this.parseFilters(template, nextToken.position + 1)
@@ -78,7 +79,7 @@ export class TemplateCompiler {
 
         lastPosition = endPosition
       } else {
-        throw new Error('No closing }} for beginning {{!')
+        throw new TemplateSyntaxError(TemplateSyntaxErrorType.UNCLOSED_TEMPLATE_EXPRESSION, nextExpressionStart)
       }
     }
 
@@ -143,7 +144,7 @@ export class TemplateCompiler {
         }
 
         default:
-          throw new Error('Unexpected token')
+          throw new TemplateSyntaxError(TemplateSyntaxErrorType.INVALID_FILTER_CHAIN, nextToken.position)
       }
     }
 
@@ -165,7 +166,7 @@ export class TemplateCompiler {
       const nextToken = this.nextSignificantToken(template, lastPosition, true, false)
 
       if (!nextToken) {
-        throw new Error('Token expected')
+        throw new TemplateSyntaxError(TemplateSyntaxErrorType.INVALID_FILTER_ARGUMENTS, lastPosition)
       }
 
       switch (nextToken.type) {
@@ -184,7 +185,7 @@ export class TemplateCompiler {
           const stringEndToken = this.nextSignificantToken(template, nextToken.position + 1, true, true)
 
           if (!stringEndToken) {
-            throw new Error('Token expected')
+            throw new TemplateSyntaxError(TemplateSyntaxErrorType.INVALID_STRING_ARGUMENT, stringStart)
           }
 
           args.push(template.substring(stringStart, stringEndToken.position))
@@ -215,9 +216,9 @@ export class TemplateCompiler {
     }
   }
 
-  private validatePointer(pointer: string) {
+  private validatePointer(position: number, pointer: string) {
     if (!pointer.match(TemplateCompiler.POINTER_REGEXP)) {
-      throw new Error('Invalid pointer syntax')
+      throw new TemplateSyntaxError(TemplateSyntaxErrorType.INVALID_POINTER, position)
     }
   }
 
