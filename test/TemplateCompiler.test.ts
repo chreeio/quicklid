@@ -17,6 +17,7 @@ interface TestCaseFile {
   [propertyName: string]: SettingGroup
 }
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const testData: TestCaseFile = require('./TemplateCompiler.testcase.json')
 
 function positiveTest(testCase: TestCase) {

@@ -14,9 +14,7 @@ interface ResolutionResult {
   present: boolean
 }
 
-type SubstitutionObject = {
-  [propertyName: string]: any
-}
+type SubstitutionObject = Record<string, unknown>
 
 /**
  * Class responsible for substituting data into compiled templates (which is called
@@ -32,7 +30,7 @@ export class CompiledTemplateEvaluator {
    */
   evaluateCompiledTemplate(
     compiledTemplate: CompiledTemplate,
-    substitutionData: object,
+    substitutionData: Record<string, unknown>,
     options: EvaluationOptions
   ): string {
     const result = compiledTemplate.fragments
@@ -44,7 +42,7 @@ export class CompiledTemplateEvaluator {
 
   private evaluateFragment(
     fragment: CompiledTemplateFragment,
-    substitutionData: object,
+    substitutionData: Record<string, unknown>,
     options: EvaluationOptions
   ): string {
     return this.isTextFragment(fragment)
@@ -54,7 +52,7 @@ export class CompiledTemplateEvaluator {
 
   private evaluateExpressionFragment(
     fragment: ExpressionFragment,
-    substitutionData: object,
+    substitutionData: Record<string, unknown>,
     options: EvaluationOptions
   ): string {
     const pointerValue = this.evaluatePointerValue(fragment.pointerSegments, substitutionData, options)
@@ -64,7 +62,7 @@ export class CompiledTemplateEvaluator {
 
   private evaluatePointerValue(
     pointerSegments: string[],
-    substitutionData: object,
+    substitutionData: Record<string, unknown>,
     options: EvaluationOptions
   ): string {
     const resolutionResult = this.resolvePointer(pointerSegments, substitutionData)
@@ -92,12 +90,12 @@ export class CompiledTemplateEvaluator {
     return value
   }
 
-  private resolvePointer(pointerSegments: string[], substitutionData: object): ResolutionResult {
+  private resolvePointer(pointerSegments: string[], substitutionData: Record<string, unknown>): ResolutionResult {
     let result = substitutionData
 
     for (const segment of pointerSegments) {
       if (this.isSubstitutionObjectWithProperty(result, segment)) {
-        result = result[segment]
+        result = result[segment] as Record<string, unknown>
       } else {
         return { present: false }
       }
@@ -106,7 +104,7 @@ export class CompiledTemplateEvaluator {
     return { value: result, present: true }
   }
 
-  private isSubstitutionObjectWithProperty(obj: object, property: string): obj is SubstitutionObject {
+  private isSubstitutionObjectWithProperty(obj: Record<string, unknown>, property: string): obj is SubstitutionObject {
     return typeof obj === 'object' && Object.prototype.hasOwnProperty.call(obj, property)
   }
 

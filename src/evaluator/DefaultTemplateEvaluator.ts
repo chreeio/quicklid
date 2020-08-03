@@ -23,7 +23,7 @@ export class DefaultTemplateEvaluator implements TemplateEvaluator {
 
   evaluateCompiledTemplate(
     compiledTemplate: CompiledTemplate,
-    substitutionData: object,
+    substitutionData: Record<string, unknown>,
     options?: Partial<EvaluationOptions>
   ): string {
     const setOptions: EvaluationOptions = { ...defaultEvaluationOptions, ...(options || {}) }

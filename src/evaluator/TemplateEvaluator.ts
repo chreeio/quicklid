@@ -27,7 +27,7 @@ export interface TemplateEvaluator {
    */
   evaluateCompiledTemplate(
     compiledTemplate: CompiledTemplate,
-    substitutionData: object,
+    substitutionData: Record<string, unknown>,
     options?: Partial<EvaluationOptions>
   ): string
 }

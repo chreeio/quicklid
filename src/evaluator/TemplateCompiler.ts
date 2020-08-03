@@ -31,7 +31,7 @@ export class TemplateCompiler {
     'g'
   )
 
-  private static readonly POINTER_REGEXP = /^[a-zA-Z0-9_\.\-]+$/g
+  private static readonly POINTER_REGEXP = /^[a-zA-Z0-9_.-]+$/g
 
   /**
    * Compiles the specified text template into an easy-to-evaluate representation.
@@ -132,7 +132,7 @@ export class TemplateCompiler {
           lastPosition = nextToken.position + 1
           break
 
-        case TokenType.ARGUMENTS_BEGIN:
+        case TokenType.ARGUMENTS_BEGIN: {
           filterName = template.substring(lastPosition, nextToken.position).trim()
           const argsParseResult = this.parseFilterArgs(template, nextToken.position + 1)
 
@@ -140,6 +140,7 @@ export class TemplateCompiler {
 
           lastPosition = argsParseResult.endPosition
           break
+        }
 
         default:
           throw new Error('Unexpected token')
@@ -178,7 +179,7 @@ export class TemplateCompiler {
           argumentStart = lastPosition
           break
 
-        case TokenType.STRING_DELIMITER:
+        case TokenType.STRING_DELIMITER: {
           const stringStart = nextToken.position + 1
           const stringEndToken = this.nextSignificantToken(template, nextToken.position + 1, true, true)
 
@@ -191,12 +192,16 @@ export class TemplateCompiler {
           argumentPushed = true
           lastPosition = stringEndToken.position + 1
           break
+        }
 
         case TokenType.EXPRESSION_END:
         case TokenType.FILTER_DELIMITER:
           if (!argumentPushed) {
             args.push(template.substring(argumentStart, nextToken.position).trim())
           }
+
+          shouldContinue = false
+          break
 
         default:
           shouldContinue = false
