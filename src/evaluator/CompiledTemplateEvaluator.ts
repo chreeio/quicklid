@@ -18,7 +18,18 @@ type SubstitutionObject = {
   [propertyName: string]: any
 }
 
+/**
+ * Class responsible for substituting data into compiled templates (which is called
+ * the evaluation of the template).
+ */
 export class CompiledTemplateEvaluator {
+  /**
+   * Evaluates the specified template against the passed subsitution data. The filter functions
+   * and the exact behavior of the evaluation can be set through the `options` parameter.
+   * @param compiledTemplate The compiled template to substitute into.
+   * @param substitutionData An object containing the data that should be used when resolving property pointers.
+   * @param options Additional options for the evaluation. For example, the filter functions.
+   */
   evaluateCompiledTemplate(
     compiledTemplate: CompiledTemplate,
     substitutionData: object,

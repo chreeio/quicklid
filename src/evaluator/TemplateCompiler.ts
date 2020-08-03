@@ -22,6 +22,9 @@ interface TokenMatch {
   type: TokenType
 }
 
+/**
+ * Class responsible for template compilation: turning text templates into `CompiledTemplate` instances.
+ */
 export class TemplateCompiler {
   private static readonly ESCAPED_EXPRESSION_BEGIN_REGEXP = new RegExp(
     '\\' + TokenType.ESCAPE_CHARACTER + TokenType.EXPRESSION_BEGIN,
@@ -30,6 +33,11 @@ export class TemplateCompiler {
 
   private static readonly POINTER_REGEXP = /^[a-zA-Z0-9_\.\-]+$/g
 
+  /**
+   * Compiles the specified text template into an easy-to-evaluate representation.
+   * @param template The text template to compile.
+   * @returns A `CompiledTemplate` instance representing the template.
+   */
   compileTemplate(template: string): CompiledTemplate {
     const fragments: CompiledTemplateFragment[] = []
 

@@ -4,6 +4,10 @@ import { CompiledTemplateEvaluator } from './CompiledTemplateEvaluator'
 import { EvaluationOptions } from './EvaluationOptions'
 import { TemplateCompiler } from './TemplateCompiler'
 
+/**
+ * Default implementation of the `TemplateEvaluator` interface. Uses
+ * delegation for template compilation and evaluation.
+ */
 export class DefaultTemplateEvaluator implements TemplateEvaluator {
   private readonly compiler: TemplateCompiler
   private readonly evaluator: CompiledTemplateEvaluator
