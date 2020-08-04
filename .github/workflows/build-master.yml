@@ -62,3 +62,34 @@ jobs:
     - name: Run Tests
       run: |
         pnpm run test
+  
+  build:
+    needs: [lint, test]
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the Repository
+      uses: actions/checkout@v2
+        
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@chreeio'
+        
+    - name: Install pnpm
+      run: |
+        npm i pnpm -g
+        
+    - name: Install dependencies
+      run: |
+        pnpm i
+      env:
+        CI: true
+
+    - name: Build
+      run: |
+        pnpm run build
+    
