@@ -1,5 +1,5 @@
 {
-  "name": "quicklid",
+  "name": "@chreeio/quicklid",
   "version": "1.0.0",
   "description": "A Liquid-like string expression evaluator.",
   "main": "dist/index.js",
