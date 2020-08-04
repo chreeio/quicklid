@@ -2,8 +2,7 @@
   "name": "quicklid",
   "version": "1.0.0",
   "description": "A Liquid-like string expression evaluator.",
-  "main": "dist/quicklid.js",
-  "types": "dist/types/quicklid.d.ts",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
