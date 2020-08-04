@@ -13,7 +13,7 @@ function createInstance(): TemplateEvaluator {
 /**
  * The exports of the Quicklid library.
  */
-export default {
+export {
   createInstance,
   defaultEvaluationOptions,
 }
