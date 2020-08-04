@@ -5,67 +5,67 @@ on:
     tags:
     - 'v*'
 
-    jobs:
-        test-and-lint:
-          runs-on: ubuntu-latest
+jobs:
+  test-and-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the Repository
+      uses: actions/checkout@v2
       
-          steps:
-          - name: Checkout the Repository
-            uses: actions/checkout@v2
-            
-          - name: Use Node.js
-            uses: actions/setup-node@v1
-            with:
-              node-version: 14
-              registry-url: 'https://npm.pkg.github.com'
-              scope: '@chreeio'
-              
-          - name: Install pnpm
-            run: |
-              npm i pnpm -g
-            
-          - name: Install dependencies
-            run: |
-              pnpm i
-            env:
-              CI: true
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@chreeio'
+        
+    - name: Install pnpm
+      run: |
+        npm i pnpm -g
       
-          - name: Lint
-            run: |
-              pnpm run lint
+    - name: Install dependencies
+      run: |
+        pnpm i
+      env:
+        CI: true
 
-          - name: Run Tests
-            run: |
-              pnpm run test
+    - name: Lint
+      run: |
+        pnpm run lint
 
-        deploy-to-ghpr:
-          needs: [test-and-lint]
+    - name: Run Tests
+      run: |
+        pnpm run test
 
-          runs-on: ubuntu-latest
+  deploy-to-ghpr:
+    needs: [test-and-lint]
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the Repository
+      uses: actions/checkout@v2
       
-          steps:
-          - name: Checkout the Repository
-            uses: actions/checkout@v2
-            
-          - name: Use Node.js
-            uses: actions/setup-node@v1
-            with:
-              node-version: 14
-              registry-url: 'https://npm.pkg.github.com'
-              scope: '@chreeio'
-              
-          - name: Install pnpm
-            run: |
-              npm i pnpm -g
-            
-          - name: Install dependencies
-            run: |
-              pnpm i
-            env:
-              CI: true
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@chreeio'
+        
+    - name: Install pnpm
+      run: |
+        npm i pnpm -g
+      
+    - name: Install dependencies
+      run: |
+        pnpm i
+      env:
+        CI: true
 
-          - name: Deploy to the GitHub Package registry
-            run: |
-              pnpm publish
-            env:
-              NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Deploy to the GitHub Package registry
+      run: |
+        pnpm publish
+      env:
+        NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
