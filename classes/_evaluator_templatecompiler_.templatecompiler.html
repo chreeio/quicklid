@@ -1,0 +1,612 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>TemplateCompiler | @chreeio/quicklid</title>
+	<meta name="description" content="Documentation for @chreeio/quicklid">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">@chreeio/quicklid</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_evaluator_templatecompiler_.html">&quot;evaluator/TemplateCompiler&quot;</a>
+				</li>
+				<li>
+					<a href="_evaluator_templatecompiler_.templatecompiler.html">TemplateCompiler</a>
+				</li>
+			</ul>
+			<h1>Class TemplateCompiler</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Class responsible for template compilation: turning text templates into <code>CompiledTemplate</code> instances.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">TemplateCompiler</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="_evaluator_templatecompiler_.templatecompiler.html#escaped_expression_begin_regexp" class="tsd-kind-icon">ESCAPED_<wbr>EXPRESSION_<wbr>BEGIN_<wbr>REGEXP</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="_evaluator_templatecompiler_.templatecompiler.html#pointer_regexp" class="tsd-kind-icon">POINTER_<wbr>REGEXP</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_evaluator_templatecompiler_.templatecompiler.html#compiletemplate" class="tsd-kind-icon">compile<wbr>Template</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_evaluator_templatecompiler_.templatecompiler.html#isexpressionbegin" class="tsd-kind-icon">is<wbr>Expression<wbr>Begin</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_evaluator_templatecompiler_.templatecompiler.html#isexpressionend" class="tsd-kind-icon">is<wbr>Expression<wbr>End</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_evaluator_templatecompiler_.templatecompiler.html#isnonescapedexpressionbegin" class="tsd-kind-icon">is<wbr>Non<wbr>Escaped<wbr>Expression<wbr>Begin</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_evaluator_templatecompiler_.templatecompiler.html#isnonescapedstringdelimiter" class="tsd-kind-icon">is<wbr>Non<wbr>Escaped<wbr>String<wbr>Delimiter</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_evaluator_templatecompiler_.templatecompiler.html#istextfragment" class="tsd-kind-icon">is<wbr>Text<wbr>Fragment</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_evaluator_templatecompiler_.templatecompiler.html#nextsignificanttoken" class="tsd-kind-icon">next<wbr>Significant<wbr>Token</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_evaluator_templatecompiler_.templatecompiler.html#parsefilterargs" class="tsd-kind-icon">parse<wbr>Filter<wbr>Args</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_evaluator_templatecompiler_.templatecompiler.html#parsefilters" class="tsd-kind-icon">parse<wbr>Filters</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_evaluator_templatecompiler_.templatecompiler.html#removeemptytextfragments" class="tsd-kind-icon">remove<wbr>Empty<wbr>Text<wbr>Fragments</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_evaluator_templatecompiler_.templatecompiler.html#replaceescapedexpressionbegins" class="tsd-kind-icon">replace<wbr>Escaped<wbr>Expression<wbr>Begins</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_evaluator_templatecompiler_.templatecompiler.html#validatepointer" class="tsd-kind-icon">validate<wbr>Pointer</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
+					<a name="escaped_expression_begin_regexp" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> ESCAPED_<wbr>EXPRESSION_<wbr>BEGIN_<wbr>REGEXP</h3>
+					<div class="tsd-signature tsd-kind-icon">ESCAPED_<wbr>EXPRESSION_<wbr>BEGIN_<wbr>REGEXP<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol"> = new RegExp(&#x27;\\&#x27; + TokenType.ESCAPE_CHARACTER + TokenType.EXPRESSION_BEGIN,&#x27;g&#x27;)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/TemplateCompiler.ts#L30">src/evaluator/TemplateCompiler.ts:30</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
+					<a name="pointer_regexp" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> POINTER_<wbr>REGEXP</h3>
+					<div class="tsd-signature tsd-kind-icon">POINTER_<wbr>REGEXP<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol"> = /^[a-zA-Z0-9_.-]+$/g</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/TemplateCompiler.ts#L35">src/evaluator/TemplateCompiler.ts:35</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="compiletemplate" class="tsd-anchor"></a>
+					<h3>compile<wbr>Template</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">compile<wbr>Template<span class="tsd-signature-symbol">(</span>template<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_evaluator_compiledtemplate_.compiledtemplate.html" class="tsd-signature-type">CompiledTemplate</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/TemplateCompiler.ts#L42">src/evaluator/TemplateCompiler.ts:42</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Compiles the specified text template into an easy-to-evaluate representation.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>template: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The text template to compile.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_evaluator_compiledtemplate_.compiledtemplate.html" class="tsd-signature-type">CompiledTemplate</a></h4>
+							<p>A <code>CompiledTemplate</code> instance representing the template.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="isexpressionbegin" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> is<wbr>Expression<wbr>Begin</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Expression<wbr>Begin<span class="tsd-signature-symbol">(</span>template<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/TemplateCompiler.ts#L334">src/evaluator/TemplateCompiler.ts:334</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>template: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="isexpressionend" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> is<wbr>Expression<wbr>End</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Expression<wbr>End<span class="tsd-signature-symbol">(</span>template<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/TemplateCompiler.ts#L346">src/evaluator/TemplateCompiler.ts:346</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>template: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="isnonescapedexpressionbegin" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> is<wbr>Non<wbr>Escaped<wbr>Expression<wbr>Begin</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Non<wbr>Escaped<wbr>Expression<wbr>Begin<span class="tsd-signature-symbol">(</span>template<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/TemplateCompiler.ts#L338">src/evaluator/TemplateCompiler.ts:338</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>template: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="isnonescapedstringdelimiter" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> is<wbr>Non<wbr>Escaped<wbr>String<wbr>Delimiter</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Non<wbr>Escaped<wbr>String<wbr>Delimiter<span class="tsd-signature-symbol">(</span>template<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/TemplateCompiler.ts#L328">src/evaluator/TemplateCompiler.ts:328</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>template: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="istextfragment" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> is<wbr>Text<wbr>Fragment</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Text<wbr>Fragment<span class="tsd-signature-symbol">(</span>fragment<span class="tsd-signature-symbol">: </span><a href="../modules/_evaluator_compiledtemplate_.html#compiledtemplatefragment" class="tsd-signature-type">CompiledTemplateFragment</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">fragment</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">TextFragment</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/TemplateCompiler.ts#L244">src/evaluator/TemplateCompiler.ts:244</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fragment: <a href="../modules/_evaluator_compiledtemplate_.html#compiledtemplatefragment" class="tsd-signature-type">CompiledTemplateFragment</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">fragment</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">TextFragment</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="nextsignificanttoken" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> next<wbr>Significant<wbr>Token</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">next<wbr>Significant<wbr>Token<span class="tsd-signature-symbol">(</span>template<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, from<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, isInsideExpression<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, isInsideString<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_evaluator_templatecompiler_.tokenmatch.html" class="tsd-signature-type">TokenMatch</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/TemplateCompiler.ts#L248">src/evaluator/TemplateCompiler.ts:248</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>template: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> from: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> isInsideExpression: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> isInsideString: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_evaluator_templatecompiler_.tokenmatch.html" class="tsd-signature-type">TokenMatch</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="parsefilterargs" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> parse<wbr>Filter<wbr>Args</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Filter<wbr>Args<span class="tsd-signature-symbol">(</span>template<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, firstArgumentStart<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>endPosition<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/TemplateCompiler.ts#L157">src/evaluator/TemplateCompiler.ts:157</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>template: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>firstArgumentStart: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>endPosition<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter">
+									<h5>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>end<wbr>Position<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="parsefilters" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> parse<wbr>Filters</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Filters<span class="tsd-signature-symbol">(</span>template<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, firstFilterStart<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>endPosition<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>filters<span class="tsd-signature-symbol">: </span><a href="../interfaces/_evaluator_compiledtemplate_.compiledfilter.html" class="tsd-signature-type">CompiledFilter</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/TemplateCompiler.ts#L95">src/evaluator/TemplateCompiler.ts:95</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>template: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>firstFilterStart: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>endPosition<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>filters<span class="tsd-signature-symbol">: </span><a href="../interfaces/_evaluator_compiledtemplate_.compiledfilter.html" class="tsd-signature-type">CompiledFilter</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter">
+									<h5>end<wbr>Position<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>filters<span class="tsd-signature-symbol">: </span><a href="../interfaces/_evaluator_compiledtemplate_.compiledfilter.html" class="tsd-signature-type">CompiledFilter</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="removeemptytextfragments" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> remove<wbr>Empty<wbr>Text<wbr>Fragments</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Empty<wbr>Text<wbr>Fragments<span class="tsd-signature-symbol">(</span>fragments<span class="tsd-signature-symbol">: </span><a href="../modules/_evaluator_compiledtemplate_.html#compiledtemplatefragment" class="tsd-signature-type">CompiledTemplateFragment</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_evaluator_compiledtemplate_.html#compiledtemplatefragment" class="tsd-signature-type">CompiledTemplateFragment</a><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/TemplateCompiler.ts#L234">src/evaluator/TemplateCompiler.ts:234</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fragments: <a href="../modules/_evaluator_compiledtemplate_.html#compiledtemplatefragment" class="tsd-signature-type">CompiledTemplateFragment</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/_evaluator_compiledtemplate_.html#compiledtemplatefragment" class="tsd-signature-type">CompiledTemplateFragment</a><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="replaceescapedexpressionbegins" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> replace<wbr>Escaped<wbr>Expression<wbr>Begins</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">replace<wbr>Escaped<wbr>Expression<wbr>Begins<span class="tsd-signature-symbol">(</span>fragments<span class="tsd-signature-symbol">: </span><a href="../modules/_evaluator_compiledtemplate_.html#compiledtemplatefragment" class="tsd-signature-type">CompiledTemplateFragment</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/TemplateCompiler.ts#L225">src/evaluator/TemplateCompiler.ts:225</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fragments: <a href="../modules/_evaluator_compiledtemplate_.html#compiledtemplatefragment" class="tsd-signature-type">CompiledTemplateFragment</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="validatepointer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> validate<wbr>Pointer</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">validate<wbr>Pointer<span class="tsd-signature-symbol">(</span>position<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, pointer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/TemplateCompiler.ts#L219">src/evaluator/TemplateCompiler.ts:219</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>position: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>pointer: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_compiledtemplate_.html">&quot;evaluator/<wbr>Compiled<wbr>Template&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_compiledtemplateevaluator_.html">&quot;evaluator/<wbr>Compiled<wbr>Template<wbr>Evaluator&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_defaulttemplateevaluator_.html">&quot;evaluator/<wbr>Default<wbr>Template<wbr>Evaluator&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_evaluationoptions_.html">&quot;evaluator/<wbr>Evaluation<wbr>Options&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_filterfunction_.html">&quot;evaluator/<wbr>Filter<wbr>Function&quot;</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/_evaluator_templatecompiler_.html">&quot;evaluator/<wbr>Template<wbr>Compiler&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_templateevaluator_.html">&quot;evaluator/<wbr>Template<wbr>Evaluator&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_templatesyntaxerror_.html">&quot;evaluator/<wbr>Template<wbr>Syntax<wbr>Error&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_unknownfiltererror_.html">&quot;evaluator/<wbr>Unknown<wbr>Filter<wbr>Error&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_unknownpropertyerror_.html">&quot;evaluator/<wbr>Unknown<wbr>Property<wbr>Error&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_index_.html">&quot;index&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-not-exported">
+						<a href="../enums/_evaluator_templatecompiler_.tokentype.html" class="tsd-kind-icon">Token<wbr>Type</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module">
+						<a href="_evaluator_templatecompiler_.templatecompiler.html" class="tsd-kind-icon">Template<wbr>Compiler</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
+								<a href="_evaluator_templatecompiler_.templatecompiler.html#escaped_expression_begin_regexp" class="tsd-kind-icon">ESCAPED_<wbr>EXPRESSION_<wbr>BEGIN_<wbr>REGEXP</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
+								<a href="_evaluator_templatecompiler_.templatecompiler.html#pointer_regexp" class="tsd-kind-icon">POINTER_<wbr>REGEXP</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_evaluator_templatecompiler_.templatecompiler.html#compiletemplate" class="tsd-kind-icon">compile<wbr>Template</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_evaluator_templatecompiler_.templatecompiler.html#isexpressionbegin" class="tsd-kind-icon">is<wbr>Expression<wbr>Begin</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_evaluator_templatecompiler_.templatecompiler.html#isexpressionend" class="tsd-kind-icon">is<wbr>Expression<wbr>End</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_evaluator_templatecompiler_.templatecompiler.html#isnonescapedexpressionbegin" class="tsd-kind-icon">is<wbr>Non<wbr>Escaped<wbr>Expression<wbr>Begin</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_evaluator_templatecompiler_.templatecompiler.html#isnonescapedstringdelimiter" class="tsd-kind-icon">is<wbr>Non<wbr>Escaped<wbr>String<wbr>Delimiter</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_evaluator_templatecompiler_.templatecompiler.html#istextfragment" class="tsd-kind-icon">is<wbr>Text<wbr>Fragment</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_evaluator_templatecompiler_.templatecompiler.html#nextsignificanttoken" class="tsd-kind-icon">next<wbr>Significant<wbr>Token</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_evaluator_templatecompiler_.templatecompiler.html#parsefilterargs" class="tsd-kind-icon">parse<wbr>Filter<wbr>Args</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_evaluator_templatecompiler_.templatecompiler.html#parsefilters" class="tsd-kind-icon">parse<wbr>Filters</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_evaluator_templatecompiler_.templatecompiler.html#removeemptytextfragments" class="tsd-kind-icon">remove<wbr>Empty<wbr>Text<wbr>Fragments</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_evaluator_templatecompiler_.templatecompiler.html#replaceescapedexpressionbegins" class="tsd-kind-icon">replace<wbr>Escaped<wbr>Expression<wbr>Begins</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_evaluator_templatecompiler_.templatecompiler.html#validatepointer" class="tsd-kind-icon">validate<wbr>Pointer</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
+						<a href="../interfaces/_evaluator_templatecompiler_.tokenmatch.html" class="tsd-kind-icon">Token<wbr>Match</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

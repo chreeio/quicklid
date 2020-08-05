@@ -1,0 +1,298 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>EvaluationOptions | @chreeio/quicklid</title>
+	<meta name="description" content="Documentation for @chreeio/quicklid">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">@chreeio/quicklid</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_evaluator_evaluationoptions_.html">&quot;evaluator/EvaluationOptions&quot;</a>
+				</li>
+				<li>
+					<a href="_evaluator_evaluationoptions_.evaluationoptions.html">EvaluationOptions</a>
+				</li>
+			</ul>
+			<h1>Interface EvaluationOptions</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Miscellaneous settings controlling how template evaluation is performed.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">EvaluationOptions</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_evaluator_evaluationoptions_.evaluationoptions.html#allowunknownfilters" class="tsd-kind-icon">allow<wbr>Unknown<wbr>Filters</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_evaluator_evaluationoptions_.evaluationoptions.html#allowunknownproperties" class="tsd-kind-icon">allow<wbr>Unknown<wbr>Properties</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_evaluator_evaluationoptions_.evaluationoptions.html#filters" class="tsd-kind-icon">filters</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_evaluator_evaluationoptions_.evaluationoptions.html#unknownfilterplaceholder" class="tsd-kind-icon">unknown<wbr>Filter<wbr>Placeholder</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_evaluator_evaluationoptions_.evaluationoptions.html#unknownpropertyplaceholder" class="tsd-kind-icon">unknown<wbr>Property<wbr>Placeholder</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="allowunknownfilters" class="tsd-anchor"></a>
+					<h3>allow<wbr>Unknown<wbr>Filters</h3>
+					<div class="tsd-signature tsd-kind-icon">allow<wbr>Unknown<wbr>Filters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/EvaluationOptions.ts#L26">src/evaluator/EvaluationOptions.ts:26</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether to allow unknown filters. If set to <code>false</code>, then an
+								<code>UnknownFilterError</code> will be thrown if an unknown filter is found.
+								Unknown means, that there is no function in the <code>filters</code> object for
+							the specified name.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="allowunknownproperties" class="tsd-anchor"></a>
+					<h3>allow<wbr>Unknown<wbr>Properties</h3>
+					<div class="tsd-signature tsd-kind-icon">allow<wbr>Unknown<wbr>Properties<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/EvaluationOptions.ts#L12">src/evaluator/EvaluationOptions.ts:12</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether to allow unknown properties. If set to <code>false</code>, then an
+								<code>UnknownPropertyError</code> will be thrown if an unknown property is found.
+							Unknown means, that a pointed property is not present on the substitution object.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="filters" class="tsd-anchor"></a>
+					<h3>filters</h3>
+					<div class="tsd-signature tsd-kind-icon">filters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/EvaluationOptions.ts#L37">src/evaluator/EvaluationOptions.ts:37</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A mapping of filter functions to filter names.</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>filterName: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="_evaluator_filterfunction_.filterfunction.html" class="tsd-signature-type">FilterFunction</a></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="unknownfilterplaceholder" class="tsd-anchor"></a>
+					<h3>unknown<wbr>Filter<wbr>Placeholder</h3>
+					<div class="tsd-signature tsd-kind-icon">unknown<wbr>Filter<wbr>Placeholder<span class="tsd-signature-symbol">:</span> <a href="_evaluator_filterfunction_.filterfunction.html" class="tsd-signature-type">FilterFunction</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/EvaluationOptions.ts#L32">src/evaluator/EvaluationOptions.ts:32</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If the <code>allowUnknownFilters</code> is set to <code>true</code>, then this
+							function is going to be used in place of any unknown filter.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="unknownpropertyplaceholder" class="tsd-anchor"></a>
+					<h3>unknown<wbr>Property<wbr>Placeholder</h3>
+					<div class="tsd-signature tsd-kind-icon">unknown<wbr>Property<wbr>Placeholder<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/d808e8d/src/evaluator/EvaluationOptions.ts#L18">src/evaluator/EvaluationOptions.ts:18</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If the <code>allowUnknownProperties</code> is set to <code>true</code>, then this
+							string is going to be substituted in place of unknown properties.</p>
+						</div>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_compiledtemplate_.html">&quot;evaluator/<wbr>Compiled<wbr>Template&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_compiledtemplateevaluator_.html">&quot;evaluator/<wbr>Compiled<wbr>Template<wbr>Evaluator&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_defaulttemplateevaluator_.html">&quot;evaluator/<wbr>Default<wbr>Template<wbr>Evaluator&quot;</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/_evaluator_evaluationoptions_.html">&quot;evaluator/<wbr>Evaluation<wbr>Options&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_filterfunction_.html">&quot;evaluator/<wbr>Filter<wbr>Function&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_templatecompiler_.html">&quot;evaluator/<wbr>Template<wbr>Compiler&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_templateevaluator_.html">&quot;evaluator/<wbr>Template<wbr>Evaluator&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_templatesyntaxerror_.html">&quot;evaluator/<wbr>Template<wbr>Syntax<wbr>Error&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_unknownfiltererror_.html">&quot;evaluator/<wbr>Unknown<wbr>Filter<wbr>Error&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_evaluator_unknownpropertyerror_.html">&quot;evaluator/<wbr>Unknown<wbr>Property<wbr>Error&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_index_.html">&quot;index&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="_evaluator_evaluationoptions_.evaluationoptions.html" class="tsd-kind-icon">Evaluation<wbr>Options</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_evaluator_evaluationoptions_.evaluationoptions.html#allowunknownfilters" class="tsd-kind-icon">allow<wbr>Unknown<wbr>Filters</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_evaluator_evaluationoptions_.evaluationoptions.html#allowunknownproperties" class="tsd-kind-icon">allow<wbr>Unknown<wbr>Properties</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_evaluator_evaluationoptions_.evaluationoptions.html#filters" class="tsd-kind-icon">filters</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_evaluator_evaluationoptions_.evaluationoptions.html#unknownfilterplaceholder" class="tsd-kind-icon">unknown<wbr>Filter<wbr>Placeholder</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_evaluator_evaluationoptions_.evaluationoptions.html#unknownpropertyplaceholder" class="tsd-kind-icon">unknown<wbr>Property<wbr>Placeholder</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
