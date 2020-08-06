@@ -10,7 +10,7 @@ import { UnknownFilterError } from './UnknownFilterError'
 import { UnknownPropertyError } from './UnknownPropertyError'
 
 interface ResolutionResult {
-  value?: any
+  value?: unknown
   present: boolean
 }
 
@@ -87,7 +87,7 @@ export class CompiledTemplateEvaluator {
       ? resolutionResult.value
       : options.unknownFilterPlaceholder(input, filter.args)
 
-    return value
+    return value as string
   }
 
   private resolvePointer(pointerSegments: string[], substitutionData: Record<string, unknown>): ResolutionResult {
