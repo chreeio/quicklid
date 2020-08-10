@@ -62,6 +62,22 @@ jobs:
     - name: Run Tests
       run: |
         pnpm run test
+
+    - name: Checkout the Shelf Push Action
+      uses: actions/checkout@v2
+      with:
+        repository: chreeio/shelf-push-action
+        ref: master
+        token: ${{ secrets.CHREE_USE_SHELF_TOKEN }}
+        path: ./shelf-push-action
+
+    - name: Shelf Push Coverage
+      uses: ./shelf-push-action
+      with:
+        entry: coverage
+        token: ${{ secrets.CHREE_USE_SHELF_TOKEN }}
+        commitMessage: Updated quicklid coverage to version ${{ github.sha }} 
+        version: master
   
   build:
     needs: [lint, test]
@@ -146,3 +162,32 @@ jobs:
         message: Updated the documentation to version ${{ github.sha }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Reset Generated Documentation
+      run: |
+        rm -rf ./gh-pages/.git
+        mv ./gh-pages ./generated-docs
+
+    - name: Checkout the Shelf Push Action
+      uses: actions/checkout@v2
+      with:
+        repository: chreeio/shelf-push-action
+        ref: master
+        token: ${{ secrets.CHREE_USE_SHELF_TOKEN }}
+        path: ./shelf-push-action
+
+    - name: Shelf Push TypeDoc
+      uses: ./shelf-push-action
+      with:
+        entry: typedoc
+        token: ${{ secrets.CHREE_USE_SHELF_TOKEN }}
+        commitMessage: Updated quicklid typedoc to version ${{ github.sha }} 
+        version: master
+
+    - name: Shelf Push Manifest
+      uses: ./shelf-push-action
+      with:
+        entry: manifest
+        token: ${{ secrets.CHREE_USE_SHELF_TOKEN }}
+        commitMessage: Updated quicklid manifest to version ${{ github.sha }} 
+        version: master
