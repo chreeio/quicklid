@@ -15,7 +15,7 @@
     "test:watch": "jest --watch",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
-    "docs": "typedoc --out docs src"
+    "docs": "typedoc --out generated-docs src"
   },
   "husky": {
     "hooks": {

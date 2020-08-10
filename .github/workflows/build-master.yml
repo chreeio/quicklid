@@ -134,9 +134,9 @@ jobs:
       # The last two steps are not scritly necessary, but they
       # make the flow easier to follow (we checkout and push the gh-pages folder).
       run: |
-        mv ./gh-pages/.git ./docs/.git
+        mv ./gh-pages/.git ./generated-docs/.git
         rm -rf ./gh-pages
-        mv ./docs ./gh-pages
+        mv ./generated-docs ./gh-pages
 
     - name: Push gh-pages
       uses: EndBug/add-and-commit@v4
