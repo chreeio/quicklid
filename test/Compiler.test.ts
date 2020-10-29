@@ -18,7 +18,7 @@ interface TestCaseFile {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const testData: TestCaseFile = require('./TemplateCompiler.testcase.json')
+const testData: TestCaseFile = require('./Compiler.testcase.json')
 
 function positiveTest(testCase: TestCase) {
   test(testCase.title, () => {
