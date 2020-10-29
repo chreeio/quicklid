@@ -4,7 +4,7 @@ import {
   TextFragment,
   ExpressionFragment,
   CompiledFilter,
-} from './CompiledTemplate'
+} from '../compiler/CompiledTemplate'
 import { EvaluationOptions } from './EvaluationOptions'
 import { UnknownFilterError } from './UnknownFilterError'
 import { UnknownPropertyError } from './UnknownPropertyError'

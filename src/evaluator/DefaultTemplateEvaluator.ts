@@ -1,8 +1,8 @@
 import { TemplateEvaluator, defaultEvaluationOptions } from './TemplateEvaluator'
-import { CompiledTemplate } from './CompiledTemplate'
+import { CompiledTemplate } from '../compiler/CompiledTemplate'
 import { CompiledTemplateEvaluator } from './CompiledTemplateEvaluator'
 import { EvaluationOptions } from './EvaluationOptions'
-import { TemplateCompiler } from './TemplateCompiler'
+import { TemplateCompiler } from '../compiler/TemplateCompiler'
 
 /**
  * Default implementation of the `TemplateEvaluator` interface. Uses

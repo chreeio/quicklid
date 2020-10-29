@@ -1,6 +1,6 @@
 import { EvaluationOptions } from './EvaluationOptions'
 
-import { CompiledTemplate } from './CompiledTemplate'
+import { CompiledTemplate } from '../compiler/CompiledTemplate'
 
 /**
  * Compiler and evaluator of Quicklid templates.

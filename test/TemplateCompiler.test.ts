@@ -1,7 +1,7 @@
 import 'jest'
 
-import { TemplateCompiler } from '../src/evaluator/TemplateCompiler'
-import { CompiledTemplate } from '../src/evaluator/CompiledTemplate'
+import { TemplateCompiler } from '../src/compiler/TemplateCompiler'
+import { CompiledTemplate } from '../src/compiler/CompiledTemplate'
 
 interface TestCase {
   title: string
