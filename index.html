@@ -67,7 +67,202 @@
 				<a href="#quicklid" id="quicklid" style="color: inherit; text-decoration: none;">
 					<h1>quicklid</h1>
 				</a>
-				<p>A Liquid-like string expression evaluator.</p>
+				<p><a href="https://github.com/chreeio/quicklid/actions?query=workflow%3A%22Build+Master%22"><img src="https://github.com/chreeio/quicklid/workflows/Build%20Master/badge.svg" alt="Build Master status"></a>
+					<a href="https://www.npmjs.com/package/@chreeio/quicklid"><img src="https://img.shields.io/npm/v/@chreeio/quicklid" alt="npm version"></a>
+				<a href="LICENSE"><img src="https://img.shields.io/github/license/chreeio/quicklid" alt="LICENCE"></a></p>
+				<p>A <a href="https://shopify.github.io/liquid/">Liquid</a>-like string expression evaluator.</p>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<pre><code><span class="hljs-built_in">npm</span> i @chreeio/quicklid</code></pre>
+				<a href="#features" id="features" style="color: inherit; text-decoration: none;">
+					<h2>Features</h2>
+				</a>
+				<ul>
+					<li>A small, trimmed down version of Liquid:<ul>
+							<li>Only built-in objects and filters.</li>
+							<li>Thus, there are no variables, control flow, partials whatsoever.</li>
+						</ul>
+					</li>
+					<li>Custom subsitution data and filters.<ul>
+							<li>You can ship your own library of filters.</li>
+						</ul>
+					</li>
+					<li>Ability to handle missing properties and filters gracefully or with an error.</li>
+					<li>Compiled templates for faster subsequent evaluation.</li>
+				</ul>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<pre><code class="language-TypeScript"><span class="hljs-keyword">import</span> { quicklid } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@chreeio/quicklid&#x27;</span>
+
+<span class="hljs-comment">// Create a new instance of quicklid.</span>
+<span class="hljs-keyword">const</span> q = quicklid()
+
+<span class="hljs-comment">// Define substitution data for templating.</span>
+<span class="hljs-keyword">const</span> substitution = {
+  user: {
+    name: <span class="hljs-string">&#x27;joe&#x27;</span>
+  }
+}
+
+<span class="hljs-comment">// Define a library of filters.</span>
+<span class="hljs-keyword">const</span> filters = {
+  upcase(input) {
+    <span class="hljs-keyword">return</span> input.toUpperCase()
+  },
+  append(input, args) {
+    <span class="hljs-keyword">return</span> input + args[<span class="hljs-number">0</span>]
+  }
+}
+
+<span class="hljs-comment">// Compile the template string. The compiled result can</span>
+<span class="hljs-comment">// be evaluated any number of times against different substitution data</span>
+<span class="hljs-comment">// and filters.</span>
+<span class="hljs-keyword">const</span> compiled = q.compileTemplate(<span class="hljs-string">&#x27;Hello, {{ user.name | upcase | append: &quot;, my man&quot; }}!&#x27;</span>)
+
+<span class="hljs-comment">// Evaluate the compiled template into a string.</span>
+<span class="hljs-keyword">const</span> result = q.evaluateCompiledTemplate(compiled, substitution, {
+    filters
+})
+
+<span class="hljs-comment">// Prints &quot;Hello, JOE, my man!&quot;</span>
+<span class="hljs-built_in">console</span>.log(result)</code></pre>
+				<p>Please take a look at the <a href="test/Evaluator.test.ts">Evaluator tests</a> for more examples.</p>
+				<a href="#template-syntax-and-semantics" id="template-syntax-and-semantics" style="color: inherit; text-decoration: none;">
+					<h2>Template Syntax and Semantics</h2>
+				</a>
+				<p>Here you find the template syntax accepted by quicklid.</p>
+				<a href="#expressions" id="expressions" style="color: inherit; text-decoration: none;">
+					<h3>Expressions</h3>
+				</a>
+				<p>Expressions should be written between a pair of <code>{{</code> and <code>}}</code>. Whitespace after the opening <code>{{</code> and before the closing <code>}}</code> is optional.</p>
+				<p>Examples:</p>
+				<pre><code><span class="xml">Hello, </span><span class="hljs-template-variable">{{ <span class="hljs-name">name</span> }}</span><span class="xml">!</span></code></pre><pre><code><span class="xml">Hello, </span><span class="hljs-template-variable">{{<span class="hljs-name">name</span>}}</span><span class="xml">!</span></code></pre>
+				<a href="#substitutions" id="substitutions" style="color: inherit; text-decoration: none;">
+					<h3>Substitutions</h3>
+				</a>
+				<p>Each expression must name a substitution. A substitution is a dotted path in the substitution object specified in evaluation time.</p>
+				<p>For example, the <code>user.name</code> substitution is resolved to <code>Joe</code> when evaluated against the</p>
+				<pre><code class="language-JavaScript"><span class="hljs-keyword">const</span> substitution = {
+    <span class="hljs-attr">user</span>: {
+        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Joe&#x27;</span>
+    }
+}</code></pre>
+				<p>object.</p>
+				<a href="#filters" id="filters" style="color: inherit; text-decoration: none;">
+					<h3>Filters</h3>
+				</a>
+				<p>A substitution can be followed by an arbitrary number of filters, separated by <code>|</code>. The whole expression, starting from the substitution can be thought of as a pipeline: The resolved value of the substitution is fed into the first filter. Then, the output of this filter becomes the input of the second filter and so on. The output of the last filter is evaluated value of the expression itself.</p>
+				<p>Let&#39;s take the following example:</p>
+				<pre><code><span class="hljs-template-variable">{{ <span class="hljs-name">user.name</span> | upcase | reverse }}</span></code></pre><p>Here, quicklid will perform the following steps:</p>
+				<ol>
+					<li>Resolve the value of the <code>user.name</code> substitution.</li>
+					<li>Execute the <code>upcase</code> filter on the resolved value.</li>
+					<li>Execute the <code>reverse</code> filter on the output of the <code>upcase</code> filter.</li>
+					<li>Replace the expression with the output of the <code>reverse</code> filter.</li>
+				</ol>
+				<a href="#filter-arguments" id="filter-arguments" style="color: inherit; text-decoration: none;">
+					<h4>Filter Arguments</h4>
+				</a>
+				<p>Filters may take any number of arguments, adhering to the following syntax:</p>
+				<ul>
+					<li>A colon (<code>:</code>) is placed right after the name of the filter.</li>
+					<li>Arguments are separated by commas (<code>,</code>).</li>
+					<li>String arguments are enclosed within double quotes (<code>&quot;</code>).</li>
+					<li>Numeric arguments are written as-is.</li>
+				</ul>
+				<p>For example:</p>
+				<pre><code><span class="hljs-template-variable">{{ <span class="hljs-name">user.name</span> | repeat: <span class="hljs-number">2</span> | replace: <span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span> }}</span></code></pre>
+				<a href="#api" id="api" style="color: inherit; text-decoration: none;">
+					<h2>API</h2>
+				</a>
+				<a href="#compiletemplatetemplate" id="compiletemplatetemplate" style="color: inherit; text-decoration: none;">
+					<h3>compileTemplate(template)</h3>
+				</a>
+				<p>Takes a template string and compiles it into an easy-to-evaluate format. This speeds up multiple evaluations of the same template string.</p>
+				<p>The compiled representation is independent from filters and substitutions. It&#39;s just a structured representation of the template string.</p>
+				<p><strong>Parameters</strong></p>
+				<ul>
+					<li><code>template: string</code><ul>
+							<li>The template string to compile.</li>
+						</ul>
+					</li>
+				</ul>
+				<p><strong>Return Value</strong></p>
+				<p>Returns <code>CompiledTemplate</code>.</p>
+				<p><strong>Error Handling</strong></p>
+				<p>If the specified string template is ill-formed, then throws <code>TemplateSyntaxError</code>.</p>
+				<a href="#evaluatecompiledtemplatecompiledtemplate-substitutiondata-options" id="evaluatecompiledtemplatecompiledtemplate-substitutiondata-options" style="color: inherit; text-decoration: none;">
+					<h3>evaluateCompiledTemplate(compiledTemplate, substitutionData, options?)</h3>
+				</a>
+				<p>Evaluates the specified template against the passed subsitution data. The filter functions and the exact behavior of the evaluation can be set through the <code>options</code> parameter.</p>
+				<p><strong>Parameters</strong></p>
+				<ul>
+					<li><code>compiledTemplate: CompiledTemplate</code><ul>
+							<li>The compiled template to substitute into.</li>
+						</ul>
+					</li>
+					<li><code>substitutionData: Record&lt;string, unknown&gt;</code><ul>
+							<li>An object containing the data that should be used when resolving substitutions.</li>
+						</ul>
+					</li>
+					<li><code>options?: Partial&lt;EvaluationOptions&gt;</code><ul>
+							<li>Additional options for the evaluation. For example, the filter functions</li>
+						</ul>
+					</li>
+				</ul>
+				<p><strong>Return Value</strong></p>
+				<p>Returns <code>string</code>.</p>
+				<p><strong>Error Handling</strong></p>
+				<p>If unknown properties are not allowed and a resolution fails, then throws <code>UnknownPropertyError</code>.</p>
+				<p>If unknown filters are not allowed and a filter name is not found, then throws <code>UnknownFilterError</code>.</p>
+				<a href="#evaluationoptions" id="evaluationoptions" style="color: inherit; text-decoration: none;">
+					<h3>EvaluationOptions</h3>
+				</a>
+				<table>
+					<thead>
+						<tr>
+							<th>Option</th>
+							<th>Descripton</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><strong>allowUnknownProperties</strong></td>
+							<td>Whether to allow unknown properties. If set to <code>false</code>, then an <code>UnknownPropertyError</code> will be thrown if an unknown property is found. Unknown means, that a pointed property is not present on the substitution object.</td>
+						</tr>
+						<tr>
+							<td><strong>unknownPropertyPlaceholder</strong></td>
+							<td>If the <code>allowUnknownProperties</code> is set to <code>true</code>, then this string is going to be substituted in place of unknown properties.</td>
+						</tr>
+						<tr>
+							<td><strong>allowUnknownFilters</strong></td>
+							<td>Whether to allow unknown filters. If set to <code>false</code>, then an <code>UnknownFilterError</code> will be thrown if an unknown filter is found. Unknown means, that there is no function in the <code>filters</code> object for the specified name.</td>
+						</tr>
+						<tr>
+							<td><strong>unknownFilterPlaceholder</strong></td>
+							<td>If the <code>allowUnknownFilters</code> is set to <code>true</code>, then this function is going to be used in place of any unknown filter.</td>
+						</tr>
+						<tr>
+							<td><strong>filters</strong></td>
+							<td>A mapping of <code>FilterFunction</code>s to filter names.</td>
+						</tr>
+				</tbody></table>
+				<a href="#filterfunction" id="filterfunction" style="color: inherit; text-decoration: none;">
+					<h3>FilterFunction</h3>
+				</a>
+				<pre><code class="language-TypeScript">(input: <span class="hljs-built_in">string</span>, args: <span class="hljs-built_in">string</span>[]): <span class="hljs-built_in">string</span></code></pre>
+				<p>A filter function which takes an input string along with a possibly empty list of arguments and transforms the input.</p>
+				<p>The input string is the output of the previous filter or the substitution value itself. The args array contains the comma-separated arguments. Numeric arguments are placed as-is in string format, while string arguments will not contain the enclosing double quotes.</p>
+				<p>The return value is the output of the filter, passed along the pipeline.</p>
+				<a href="#acknowledgements" id="acknowledgements" style="color: inherit; text-decoration: none;">
+					<h2>Acknowledgements</h2>
+				</a>
+				<p>This is an open source project maintained by <a href="https://chree.io">Chree</a>. For more projects maintained or supported by Chree, please head over to the <a href="https://opensource.chree.io">Chree Open Source page</a>.</p>
+				<a href="#licence" id="licence" style="color: inherit; text-decoration: none;">
+					<h2>Licence</h2>
+				</a>
+				<p>This package is licensed under <a href="LICENSE">MIT</a>.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
