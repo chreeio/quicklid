@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ExpressionFragment | @chreeio/quicklid</title>
+	<title>TextFragment | @chreeio/quicklid</title>
 	<meta name="description" content="Documentation for @chreeio/quicklid">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_evaluator_compiledtemplate_.html">&quot;evaluator/CompiledTemplate&quot;</a>
+					<a href="../modules/_compiler_compiledtemplate_.html">&quot;compiler/CompiledTemplate&quot;</a>
 				</li>
 				<li>
-					<a href="_evaluator_compiledtemplate_.expressionfragment.html">ExpressionFragment</a>
+					<a href="_compiler_compiledtemplate_.textfragment.html">TextFragment</a>
 				</li>
 			</ul>
-			<h1>Interface ExpressionFragment</h1>
+			<h1>Interface TextFragment</h1>
 		</div>
 	</div>
 </header>
@@ -72,8 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>An expression (pointer to some property and an optional filter chain) fragment
-						inside a compiled template.</p>
+						<p>A text fragment inside a compiled template.</p>
 					</div>
 				</div>
 			</section>
@@ -81,7 +80,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ExpressionFragment</span>
+						<span class="target">TextFragment</span>
 					</li>
 				</ul>
 			</section>
@@ -92,8 +91,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_evaluator_compiledtemplate_.expressionfragment.html#filters" class="tsd-kind-icon">filters</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_evaluator_compiledtemplate_.expressionfragment.html#pointersegments" class="tsd-kind-icon">pointer<wbr>Segments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_compiler_compiledtemplate_.textfragment.html#text" class="tsd-kind-icon">text</a></li>
 							</ul>
 						</section>
 					</div>
@@ -102,32 +100,17 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="filters" class="tsd-anchor"></a>
-					<h3>filters</h3>
-					<div class="tsd-signature tsd-kind-icon">filters<span class="tsd-signature-symbol">:</span> <a href="_evaluator_compiledtemplate_.compiledfilter.html" class="tsd-signature-type">CompiledFilter</a><span class="tsd-signature-symbol">[]</span></div>
+					<a name="text" class="tsd-anchor"></a>
+					<h3>text</h3>
+					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/9ce7658/src/evaluator/CompiledTemplate.ts#L40">src/evaluator/CompiledTemplate.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/eda17d6/src/compiler/CompiledTemplate.ts#L24">src/compiler/CompiledTemplate.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A chain of filters to apply to the pointed value.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="pointersegments" class="tsd-anchor"></a>
-					<h3>pointer<wbr>Segments</h3>
-					<div class="tsd-signature tsd-kind-icon">pointer<wbr>Segments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/chreeio/quicklid/blob/9ce7658/src/evaluator/CompiledTemplate.ts#L35">src/evaluator/CompiledTemplate.ts:35</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The property pointer split into segments for easier access.</p>
+							<p>The actual text content of the fragment.</p>
 						</div>
 					</div>
 				</section>
@@ -140,7 +123,16 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/_evaluator_compiledtemplate_.html">&quot;evaluator/<wbr>Compiled<wbr>Template&quot;</a>
+						<a href="../modules/_compiler_compiledtemplate_.html">&quot;compiler/<wbr>Compiled<wbr>Template&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_compiler_templatecompiler_.html">&quot;compiler/<wbr>Template<wbr>Compiler&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_compiler_templatesyntaxerror_.html">&quot;compiler/<wbr>Template<wbr>Syntax<wbr>Error&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_compiler_index_.html">&quot;compiler/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_evaluator_compiledtemplateevaluator_.html">&quot;evaluator/<wbr>Compiled<wbr>Template<wbr>Evaluator&quot;</a>
@@ -155,13 +147,7 @@
 						<a href="../modules/_evaluator_filterfunction_.html">&quot;evaluator/<wbr>Filter<wbr>Function&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_evaluator_templatecompiler_.html">&quot;evaluator/<wbr>Template<wbr>Compiler&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_evaluator_templateevaluator_.html">&quot;evaluator/<wbr>Template<wbr>Evaluator&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_evaluator_templatesyntaxerror_.html">&quot;evaluator/<wbr>Template<wbr>Syntax<wbr>Error&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_evaluator_unknownfiltererror_.html">&quot;evaluator/<wbr>Unknown<wbr>Filter<wbr>Error&quot;</a>
@@ -180,31 +166,28 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_evaluator_compiledtemplate_.compiledfilter.html" class="tsd-kind-icon">Compiled<wbr>Filter</a>
+						<a href="_compiler_compiledtemplate_.compiledfilter.html" class="tsd-kind-icon">Compiled<wbr>Filter</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_evaluator_compiledtemplate_.compiledtemplate.html" class="tsd-kind-icon">Compiled<wbr>Template</a>
+						<a href="_compiler_compiledtemplate_.compiledtemplate.html" class="tsd-kind-icon">Compiled<wbr>Template</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_compiler_compiledtemplate_.expressionfragment.html" class="tsd-kind-icon">Expression<wbr>Fragment</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_evaluator_compiledtemplate_.expressionfragment.html" class="tsd-kind-icon">Expression<wbr>Fragment</a>
+						<a href="_compiler_compiledtemplate_.textfragment.html" class="tsd-kind-icon">Text<wbr>Fragment</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_evaluator_compiledtemplate_.expressionfragment.html#filters" class="tsd-kind-icon">filters</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_evaluator_compiledtemplate_.expressionfragment.html#pointersegments" class="tsd-kind-icon">pointer<wbr>Segments</a>
+								<a href="_compiler_compiledtemplate_.textfragment.html#text" class="tsd-kind-icon">text</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_evaluator_compiledtemplate_.textfragment.html" class="tsd-kind-icon">Text<wbr>Fragment</a>
-					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/_evaluator_compiledtemplate_.html#compiledtemplatefragment" class="tsd-kind-icon">Compiled<wbr>Template<wbr>Fragment</a>
+						<a href="../modules/_compiler_compiledtemplate_.html#compiledtemplatefragment" class="tsd-kind-icon">Compiled<wbr>Template<wbr>Fragment</a>
 					</li>
 				</ul>
 			</nav>
